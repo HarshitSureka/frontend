@@ -137,7 +137,7 @@ const Navbar = ({proprole}) => {
             <input type='search' value={searchValue} onChange={onChangeSearchValue} className='form-control' placeholder='Type query' aria-label='Search' />
             <MDBBtn color='primary' onClick={() => onSearch(searchValue)}>Search</MDBBtn>
             
-            <Dropdown.Menu show>
+            <Dropdown.Menu show={searchValue!=""}>
             {filteredSkills.map((item) => (						
             <Dropdown.Item key={item._id} onClick={() => onSearch(item.skill)}>{item.skill.split("_").join(" ")}</Dropdown.Item>
 						))}

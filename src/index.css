@@ -38,3 +38,7 @@ code {
 .search-inner {
   display: flex;
 }
+
+[type='radio'] {
+  display: none; 
+}

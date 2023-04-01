@@ -140,20 +140,29 @@ const AddQuestion = (props) => {
 
     const submit = () => {
         // // console.log('hist ', props);
+        var options = [];
+        optionsList.forEach(element => {
+            options.push(element.option);
+        });
+
         var formData = new FormData();
         if(file != "")  formData.append("photo", file);
         formData.append("question", question);
-        formData.append("options", optionsList);
+        formData.append("options", options);
         formData.append("correct_answers", answersList.current);
         formData.append("explaination", explaination);
-        formData.append("corresponding_skill", correspondingSkill.current);
+        formData.append("corresponding_skill", tempCorrespondingSkill.current);
         formData.append("corresponding_category", correspondingCategory);
         formData.append("corresponding_sub_category", correspondingSubCategory);
 
         localStorage.setItem("skill", tempCorrespondingSkill.current);
         localStorage.setItem("category", correspondingCategory);
         localStorage.setItem("sub_category", correspondingSubCategory);
-        
+        console.log('optionsList', optionsList);
+        console.log('formData', formData);
+
+        console.log('optionsList', options);
+
         Axios({
             method: "POST",
             data: formData,
