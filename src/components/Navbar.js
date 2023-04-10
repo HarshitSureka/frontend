@@ -25,7 +25,7 @@ const Navbar = ({proprole}) => {
     const [showBasic, setShowBasic] = useState(false);
 	const [searchValue, setSearchValue] = useState("");
   const skills = useRef([]);
-  const [filteredSkills, setFilteredSkills] = useState([]);
+  const [filteredQueries, setFilteredQueries] = useState([]);
   const [role, setRole] = useState('');
 
 	const navigate = useNavigate();
@@ -44,24 +44,49 @@ const Navbar = ({proprole}) => {
 
     const onChangeSearchValue = (event) => {
 		setSearchValue(event.target.value);
-    setFilteredSkills((skills.current)
-      .filter((item) => {
-      const searchTerm = (event.target.value).toLowerCase();
-      const fullName = item.skill.toLowerCase();
+    var tempFilteredQueries = [];
 
-      return (
-        searchTerm &&
-        fullName.includes(searchTerm)
-      );
+    (skills.current).forEach((skill) => {
+      const searchTerm = (event.target.value).toLowerCase();
+      const skillName = skill.skill.toLowerCase();
+      
+      if(searchTerm && skillName.includes(searchTerm)){
+        tempFilteredQueries.push({type:'skill', skill: skill.skill, name:skill.skill});
+      }
+
+      // console.log('categories', skill.categories);
+      // (skill.categories).forEach((category) => {
+      //   if(searchTerm && category.includes(searchTerm)){
+      //     tempFilteredQueries.push(category);
+      //   }   
+      // })
+
+      for(var i=0; i<skill.categories.length; i++){
+        var category = skill.categories[i];
+        if(searchTerm && (category.toLowerCase()).includes(searchTerm)){
+          tempFilteredQueries.push({type:'category', skill: skill.skill, category: category, name: category});
+        }
+      }
+
+      (skill.sub_categories).forEach((subCategory) => {
+        const subCategoryName = subCategory.sub_category;
+        if(searchTerm && (subCategoryName.toLowerCase()).includes(searchTerm)){
+          tempFilteredQueries.push({type: 'subcategory',skill:skill.skill, category: subCategory.category,  sub_category: subCategoryName, name: subCategoryName});
+        }
       })
-      .slice(0, 10));
+    })
+
+    setFilteredQueries(tempFilteredQueries.slice(0, 10));
+    // console.log('tempFilteredQueries', tempFilteredQueries);
 	};
 
     const onSearch = (searchTerm) => {
 		setSearchValue(searchTerm);
 		// our api to fetch the search result
 		// console.log("search ", searchTerm);
-		navigate(`/skills/${searchTerm}`);	
+    if(searchTerm.type === 'skill')         navigate(`/skills/${searchTerm.skill}`);	
+    else if(searchTerm.type === 'category') navigate(`/skills/${searchTerm.skill}/${searchTerm.category}`); 
+    else                                    navigate(`/skills/${searchTerm.skill}/${searchTerm.category}/${searchTerm.sub_category}/information/0`); 
     window.location.reload();
 	};
 
@@ -71,6 +96,7 @@ const Navbar = ({proprole}) => {
 			withCredentials: true,
 			url: "/server/skills",
 		}).then((res) => {
+      // console.log('skills = ', res.data.data);
       skills.current = res.data.data;
       setRole(proprole.current);
 		});
@@ -138,8 +164,8 @@ const Navbar = ({proprole}) => {
             <MDBBtn color='primary' onClick={() => onSearch(searchValue)}>Search</MDBBtn>
             
             <Dropdown.Menu show={searchValue!=""}>
-            {filteredSkills.map((item) => (						
-            <Dropdown.Item key={item._id} onClick={() => onSearch(item.skill)}>{item.skill.split("_").join(" ")}</Dropdown.Item>
+            {filteredQueries.map((item, i) => (						
+            <Dropdown.Item key={i} onClick={() => onSearch(item)}>{item.name.split("_").join(" ")}</Dropdown.Item>
 						))}
             </Dropdown.Menu>
           </form>

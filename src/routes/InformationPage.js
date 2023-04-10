@@ -20,6 +20,7 @@ const InformationPage = () => {
 	const role = useRef('');
 	const isCompleted = useRef(false);
 	const [score, setScore] = useState(-1);
+	const [isQuiz, setIsQuiz] = useState(false);
 
 	const getInformation = () => {
 		Axios({
@@ -59,6 +60,13 @@ const InformationPage = () => {
 			// console.log("total info pages :", filteredData.length);
 			setSkillDetails(res.data.data[0]);
 			setMaxInfoPages(filteredData.length);
+
+			(res.data.data[0].questions).forEach((question) => {
+				if((question.category === category) && (question.sub_category === subcategory)){
+					console.log(question);
+					setIsQuiz(true);				
+				}
+			})
 		});
 	};
 
@@ -116,8 +124,8 @@ const InformationPage = () => {
 				</Card.Text>
 				{(pageNumber > 0)  && <><Button variant="secondary" onClick={prev}>Prev</Button>{'  '}</>}
 		   {(pageNumber + 1 < maxInfoPages)  && <><Button variant="primary"  onClick={next}>Next</Button>{'  '}</>}
-
-		   {(pageNumber + 1 === maxInfoPages && isCompleted.current === true) &&
+			
+		   {isQuiz && (pageNumber + 1 === maxInfoPages && isCompleted.current === true) &&
 			<><OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Your score is {score}</Tooltip>}>
 				<span className="d-inline-block">
 					<Button disabled style={{ pointerEvents: 'none' }}>
@@ -126,9 +134,9 @@ const InformationPage = () => {
 				</span>
 				</OverlayTrigger></>}
 			
-				{(pageNumber + 1 === maxInfoPages && isCompleted.current === false) &&
+				{isQuiz && (pageNumber + 1 === maxInfoPages && isCompleted.current === false) &&
 			<><Button variant="primary" onClick={() => navigate(`/skills/${skillName}/${category}/${subcategory}/quiz`)}>Start Quiz</Button>{'  '}</>}
-
+			{!isQuiz && (pageNumber + 1 === maxInfoPages) && <Button variant="primary" onClick={() => navigate(`/skills/${skillName}/${category}`)}>Go Back!!</Button>}
 			</Card.Body>
 			</Card>
         </>
