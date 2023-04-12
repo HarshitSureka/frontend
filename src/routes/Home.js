@@ -208,7 +208,7 @@ const Home = (props) => {
         height: '0.01px',
         backgroundColor: '#000000'}}></hr>
 
-					<ToggleButtonGroup type="radio" name="radio">
+					{/* <ToggleButtonGroup type="radio" name="radio">
 					{(skills)? skills.map((skill, idx) => (
 					<ToggleButton
 						key={idx}
@@ -223,20 +223,38 @@ const Home = (props) => {
 					</ToggleButton>
 					)):null}
 					
-				</ToggleButtonGroup>
+				</ToggleButtonGroup> */}
+
+				{(skills)? skills.map((skill, idx) => (
+					<>
+					<Button
+						key={idx}
+						id={`radio-${idx}`}
+						variant={selectedSkill === skill.skill? 'success':'light'}
+						value={skill.skill}
+						onClick={(e) => {setSelectedSkill(e.target.value); getCategories(e.target.value); console.log(e.target.value);}}
+						style = {{ borderRadius: '8px', margin:'2px 0px 2px 0px' }}
+					>
+						{skill.skill.split("_").join(" ")}
+					</Button>{'  '}</>
+					)):null}
+
+				<br/>	
 				<br/>	
 					{(categories)? categories.map((category, idx) => (
 					<>
 						<Button
-						variant='outline-danger'
+						variant='light'
 						onClick={() => navigate(`/skills/${selectedSkill}/${category}`)}
+						style = {{ borderRadius: '50%', margin:'2px 0px 2px 0px' }}
 						>
 							{category.split("_").join(" ")}
 						</Button>
-						<br/>
+						<br></br>
 					</>
 					)):null}
 				</div>
+				<br/>
 			</Col>
 		</Row>
 		</>

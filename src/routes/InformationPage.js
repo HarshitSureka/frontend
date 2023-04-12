@@ -115,7 +115,7 @@ const InformationPage = () => {
 				<p>
 				{/* {information.information} */}
 					{(informationDisplay)!==' ' && (informationDisplay).split('\n').map((item, key) => (
-						<div key={key}>
+						<div key={key} onMouseDown = {(e) => e.preventDefault()} onCopy = {(e) => e.preventDefault()} onSelectStart = {(e) => e.preventDefault()} >
 							{item}
 						<br />
 						</div>
