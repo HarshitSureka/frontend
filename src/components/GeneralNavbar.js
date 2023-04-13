@@ -14,13 +14,16 @@ import {Link, useNavigate } from 'react-router-dom';
 
 
 const GeneralNavbar = ({proprole}) => {
+
+  
+
     const [showBasic, setShowBasic] = useState(false);
 	const navigate = useNavigate();
 
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand onClick ={() => navigate(`/`)}>Skillingo</MDBNavbarBrand>
+        <MDBNavbarBrand onClick ={() => navigate(`/`)}>Finsu</MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'

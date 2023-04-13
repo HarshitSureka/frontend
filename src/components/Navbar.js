@@ -105,7 +105,7 @@ const Navbar = ({proprole}) => {
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand onClick ={() => navigate(`/home`)}>Skillingo</MDBNavbarBrand>
+        <MDBNavbarBrand onClick ={() => navigate(`/home`)}>Finsu</MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'

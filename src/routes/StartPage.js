@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import {Row,  Col, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import GeneralNavbar from '../components/GeneralNavbar';
+const logo = require('../finsu_mascot.png');
 
 ////This is the home page of the website, which is user directed to the
 ////after he has been authenticated, where he is given 2 options whether
@@ -29,20 +30,25 @@ const StartPage = (props) => {
 				// console.log("Already logged in");
                 navigate(`/home`);
 			}
-			else	{
-				navigate('/auth/login');
-			}
 		}); 
 	}, []);
 
 	return (
 		<>
-		<Helmet><title>Quiz</title></Helmet>
+		<Helmet><title>Finsu - Learn Finance the Fun Way</title></Helmet>
 		<GeneralNavbar/>
-		<Row style={{ marginLeft: "10px",marginRight: "10px", marginTop:"10px"}}>
-			<Col >
-			
-				<img style={{ width: window.innerWidth*0.95, height: window.innerHeight*0.9 }} src="https://blog.ipleaders.in/wp-content/uploads/2021/07/Top-12-Pioneers-in-Education-scaled.jpg" alt="React Logo" />
+		<br/>
+		<br/>
+		<Row style={{ margin: "auto", width: "60%"}}>
+		
+			<Col style={{ marginTop : "15%" }}>
+			<h1>Learn Finance the Fun Way!</h1>
+    	    <p>Finance Simplified! Invest only 3 minutes a day to master Investing, Trading, Personal Finance, and More.</p>
+			<Button onClick={() => navigate(`/auth/login`)}>Get Started</Button> 
+			</Col>
+				
+			<Col> 
+			<img src={logo} alt="React Logo" />
 			</Col>
 		</Row>
 		</>
