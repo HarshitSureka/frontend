@@ -12,10 +12,16 @@ const EditQuestion = (props) => {
     const [question, setQuestion] = useState("");
     const [explaination, setExplaination] = useState("");
     const [optionsList, setOptionsList]= useState([]);
+    const [imageURL, setImageURL] = useState("");
+    const [file, setFile] = useState("");
     const answersList= useRef([]);
     const role = useRef('');
 
     const navigate = useNavigate();
+
+    const setimgfile = (e) => {
+        setFile(e.target.files[0])
+    }
 
     const handleAnswer= i=>{
         var tempAnswersList = answersList.current;
@@ -54,6 +60,7 @@ const EditQuestion = (props) => {
 			withCredentials: true,
 			url: `/server/question/${id}`,
 		}).then((res) => {
+            console.log('question full data', res.data);
             console.log('question ',res.data.data);
             setQuestionObject(res.data.data);
             setQuestion(String(res.data.data.question));
@@ -66,20 +73,31 @@ const EditQuestion = (props) => {
             // console.log('optionsList', tempOptionsList);
             setOptionsList(tempOptionsList);
             setExplaination(res.data.data.explaination);
-            // console.log('correctOption', res.data.data.correct_answer);
+            if(res.data.url !== undefined){
+				console.log('url',res.data.url);
+				setImageURL(res.data.url);
+			}
+		    // console.log('correctOption', res.data.data.correct_answer);
 		});
 	};
 
     const submit = () => {
+        var options = [];
+        optionsList.forEach(element => {
+            options.push(element.option);
+        });
+
+        var formData = new FormData();
+        if(file != "")  formData.append("photo", file);
+        formData.append("question", question);
+        formData.append("options", options);
+        formData.append("correct_answers", answersList.current);
+        formData.append("explaination", explaination);
+        
         // console.log('posted');
         Axios({
             method: "POST",
-            data: {
-                question: question,
-                options: optionsList,
-                correct_answers: answersList.current,
-                explaination: explaination
-            },
+            data: formData,
             withCredentials: true,
             url: `/server/editquestion/${id}`,
         }).then(function (response) {
@@ -123,6 +141,12 @@ const EditQuestion = (props) => {
                             <Form.Control type="string"  defaultValue = {question}
                             onChange={(e) => setQuestion(e.target.value)} />
                         </Form.Group>}
+                        <br></br>
+                        
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Select Your Image</Form.Label>
+                            <Form.Control type="file" onChange={setimgfile} name='photo' placeholder="" />
+                        </Form.Group>
                         <br></br>
 
 

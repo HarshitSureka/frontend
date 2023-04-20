@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.d5194d9a.css",
-    "main.js": "/static/js/main.e8cfdeeb.js",
+    "main.js": "/static/js/main.cea8f2ac.js",
     "static/js/787.83904489.chunk.js": "/static/js/787.83904489.chunk.js",
     "static/media/finsu_mascot.png": "/static/media/finsu_mascot.f00e33d7a31767eff528.png",
     "index.html": "/index.html",
     "main.d5194d9a.css.map": "/static/css/main.d5194d9a.css.map",
-    "main.e8cfdeeb.js.map": "/static/js/main.e8cfdeeb.js.map",
+    "main.cea8f2ac.js.map": "/static/js/main.cea8f2ac.js.map",
     "787.83904489.chunk.js.map": "/static/js/787.83904489.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d5194d9a.css",
-    "static/js/main.e8cfdeeb.js"
+    "static/js/main.cea8f2ac.js"
   ]
 }

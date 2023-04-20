@@ -10,6 +10,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 const InformationPage = () => {
+	const [imageURL, setImageURL] = useState('');
     const {skillName, category, subcategory, page} = useParams();
     const navigate = useNavigate();
     const [skillDetails, setSkillDetails] = useState({});
@@ -28,7 +29,11 @@ const InformationPage = () => {
 			withCredentials: true,
 			url: `/server/information/${skillName}/${category}/${subcategory}/${page}`,
 		}).then((res) => {
-			// console.log("information data are:", res.data.data);
+			console.log("information data are:", res.data);
+			if(res.data.url !== undefined){
+				console.log('url',res.data.url);
+				setImageURL(res.data.url);
+			}
 			setInformation(res.data.data);
 			setInformationDisplay(res.data.data.information);
 		});
@@ -109,7 +114,7 @@ const InformationPage = () => {
 			{/* <Card.Header>Let's Learn about {information.category}</Card.Header> */}
 			<Card.Body>
 				<Card.Title>{information.heading}</Card.Title>
-				{information.imgpath && <><Card.Img variant="top" style={{ width: "300px", textAlign: "center", margin: "auto" }} src={`/uploads/${information.imgpath}`} className='mt-2' /><br/><br/></>}
+				{imageURL && <><Card.Img variant="top" style={{ width: "300px", textAlign: "center", margin: "auto" }} src={imageURL} className='mt-2' /><br/><br/></>}
 				
 				<Card.Text>
 				<p>

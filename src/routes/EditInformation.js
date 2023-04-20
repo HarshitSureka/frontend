@@ -10,9 +10,16 @@ const EditInformation = (props) => {
     const {skill, category, subcategory, id} = useParams();
     const [information, setInformation] = useState("");
     const [heading, setHeading]= useState("");
+    const [imageURL, setImageURL] = useState("");
+    const [file, setFile] = useState("");
+
     const role = useRef('');
 
     const navigate = useNavigate();
+    
+    const setimgfile = (e) => {
+        setFile(e.target.files[0])
+    }
 
     const getInformation = () => {
 		Axios({
@@ -23,16 +30,23 @@ const EditInformation = (props) => {
             // console.log('info rec',res.data.data);
             setInformation(res.data.data.information);
             setHeading(res.data.data.heading);
+            if(res.data.url !== undefined){
+				console.log('url',res.data.url);
+				setImageURL(res.data.url);
+			}
 		});
 	};
 
     const submit = () => {
+
+        var formData = new FormData();
+        if(file != "")  formData.append("photo", file);
+        formData.append("heading", heading);
+        formData.append("information", information);
+        
         Axios({
             method: "POST",
-            data: {
-                heading: heading,
-                information: information,
-            },
+            data: formData,
             withCredentials: true,
             url: `/server/editinformation/${id}`,
         }).then(function (response) {
@@ -75,6 +89,12 @@ const EditInformation = (props) => {
                             <Form.Label>Edit Heading</Form.Label>
                             <Form.Control type="string" defaultValue = {heading}
                             onChange={(e) => setHeading(e.target.value)} />
+                        </Form.Group>
+                        <br></br>
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Select Your Image</Form.Label>
+                            <Form.Control type="file" onChange={setimgfile} name='photo' placeholder="" />
                         </Form.Group>
                         <br></br>
 

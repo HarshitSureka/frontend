@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar';
 import Modal from 'react-bootstrap/Modal';
 
 const Quiz = () => {
+	const [imageURL, setImageURL] = useState('');	
     const {skillName, subcategory, category} = useParams();
     const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ const Quiz = () => {
 	const [optionSet, setOptionSet] = useState([]);
 	const [answersList, setAnswersList] = useState([]); 
 	const [currentIsCorrect, setCurrentIsCorrect] = useState(false);
+	const [currentImageName, setCurrentImageName] = useState('');
 
 	const [showExplaination, setShowExplaination] = useState(false);
 
@@ -48,6 +50,22 @@ const Quiz = () => {
 		setOptionSet(questionSet.current[newQuestionIndex].options);
 		correctAnswers.current = questionSet.current[newQuestionIndex].correct_answers;
 		setShowExplaination(false);
+
+		if(questionSet.current[newQuestionIndex].imgpath != undefined){
+			setCurrentImageName(questionSet.current[newQuestionIndex].imgpath);
+			const key = questionSet.current[newQuestionIndex].imgpath;
+			Axios({
+				method: "GET",
+				withCredentials: true,
+				url: `/server/getImage/${key}`,
+			}).then((res) => {
+				setImageURL(res.data.url);
+			});		
+		}else{
+			setCurrentImageName('');
+			setImageURL('');
+		}
+
 	}
 
 	// TODO: 
@@ -87,6 +105,20 @@ const Quiz = () => {
             setCurrentQuestion(res.data.data[0].question);
 			setCurrentExplaination(res.data.data[0].explaination);
 			setOptionSet(res.data.data[0].options);
+			if(res.data.data[0].imgpath != undefined){
+				setCurrentImageName(res.data.data[0].imgpath);
+				const key = res.data.data[0].imgpath;
+				Axios({
+					method: "GET",
+					withCredentials: true,
+					url: `/server/getImage/${key}`,
+				}).then((res) => {
+					setImageURL(res.data.url);
+				});		
+			}else{
+				setCurrentImageName('');
+				setImageURL('');
+			}
 			correctAnswers.current = res.data.data[0].correct_answers;
 			var tempScore = [];
 			for(var i = 0; i < (res.data.data.length); i++) {
@@ -139,6 +171,7 @@ const Quiz = () => {
 			<Card.Body>
 				<Card.Title>Question {(currentQuestionIndex.current) + 1}</Card.Title>
 				<Card.Text>{currentQuestion}</Card.Text>
+				{imageURL && <><Card.Img variant="top" style={{ width: "300px", textAlign: "center", margin: "auto" }} src={imageURL} className='mt-2' /><br/><br/></>}
 			</Card.Body>
 			<ListGroup className="list-group-flush">
 			{optionSet.map((option, i) =>

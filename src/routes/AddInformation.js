@@ -43,9 +43,6 @@ const AddInformation = (props) => {
     };
 
     const setimgfile = (e) => {
-        // console.log('image up', e);
-    // console.log('image up target', e.target);
-    // console.log('image up target files', e.target.files);
         setFile(e.target.files[0])
     }
 
