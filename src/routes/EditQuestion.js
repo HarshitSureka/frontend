@@ -60,8 +60,8 @@ const EditQuestion = (props) => {
 			withCredentials: true,
 			url: `/server/question/${id}`,
 		}).then((res) => {
-            console.log('question full data', res.data);
-            console.log('question ',res.data.data);
+            // console.log('question full data', res.data);
+            // console.log('question ',res.data.data);
             setQuestionObject(res.data.data);
             setQuestion(String(res.data.data.question));
             answersList.current = (res.data.data.correct_answers);
@@ -74,7 +74,7 @@ const EditQuestion = (props) => {
             setOptionsList(tempOptionsList);
             setExplaination(res.data.data.explaination);
             if(res.data.url !== undefined){
-				console.log('url',res.data.url);
+				// console.log('url',res.data.url);
 				setImageURL(res.data.url);
 			}
 		    // console.log('correctOption', res.data.data.correct_answer);

@@ -48,7 +48,7 @@ const AllSubCategories = () => {
     };
 
 	const handleMovingUp = (index) => {
-		console.log('moving up sub categories', subCategories);
+		// console.log('moving up sub categories', subCategories);
 		var updatedSubCategories = subCategories;
 		if(index){
 			var tempSubCategory = subCategories[index];
@@ -61,7 +61,7 @@ const AllSubCategories = () => {
 			updatedSubCategories[index] = subCategories[len-1];
 			updatedSubCategories[len - 1] = tempSubCategory;
 		}
-		console.log('moving up sub categories', subCategories);
+		// console.log('moving up sub categories', subCategories);
 		Axios({
 			method: "POST",
 			data: {
@@ -71,7 +71,7 @@ const AllSubCategories = () => {
 			url: `/server/editsubcategoryordering/${skill}/${category}`,
 		}).then(() => {
             setSubCategories(updatedSubCategories);
-			console.log('changed');
+			// console.log('changed');
             window.location.reload();
 		});
     };
@@ -98,7 +98,7 @@ const AllSubCategories = () => {
 			url: `/server/editsubcategoryordering/${skill}/${category}`,
 		}).then(() => {
             setSubCategories(updatedSubCategories);
-			console.log('changed');
+			// console.log('changed');
             window.location.reload();
 		});
     };

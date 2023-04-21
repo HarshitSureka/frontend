@@ -158,10 +158,10 @@ const AddQuestion = (props) => {
         localStorage.setItem("skill", tempCorrespondingSkill.current);
         localStorage.setItem("category", correspondingCategory);
         localStorage.setItem("sub_category", correspondingSubCategory);
-        console.log('optionsList', optionsList);
-        console.log('formData', formData);
+        // console.log('optionsList', optionsList);
+        // console.log('formData', formData);
 
-        console.log('optionsList', options);
+        // console.log('optionsList', options);
 
         Axios({
             method: "POST",

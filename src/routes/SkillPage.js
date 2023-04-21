@@ -25,7 +25,7 @@ const SkillPage = () => {
 			// categories.current = res.data.data[0].categories;
 			// console.log("categories - ", categories.current);
 			skill.current = (res.data.data[0]);
-			console.log('skill.current',skill.current );
+			// console.log('skill.current',skill.current );
 			setCategories(res.data.data[0].categories);
 
 			var tempCheckIsCompleted = [];
@@ -34,8 +34,8 @@ const SkillPage = () => {
 					if(score.skill === skillName )
 					completedSubCategories = completedSubCategories.concat({category: score.category, sub_category: score.sub_category});
 				});
-				console.log('completedSubCategories', completedSubCategories);
-				console.log('skill.current',skill.current );
+				// console.log('completedSubCategories', completedSubCategories);
+				// console.log('skill.current',skill.current );
 				skill.current.categories.forEach(category =>{
 					var n1 = 0, n2 = 0;
 					skill.current.sub_categories.forEach((sub_category) =>{
@@ -44,13 +44,13 @@ const SkillPage = () => {
 					completedSubCategories.forEach((sub_category) =>{
 						if(sub_category.category === category)	n2++;
 					});
-					console.log('category', category, n1, n2);
+					// console.log('category', category, n1, n2);
 					if(n1 === n2){
 						tempCheckIsCompleted = tempCheckIsCompleted.concat(category);
 					}
 				});
 				checkIsCompleted.current = tempCheckIsCompleted;
-				console.log('checkIsCompleted', checkIsCompleted.current);
+				// console.log('checkIsCompleted', checkIsCompleted.current);
 		});
 	};
 

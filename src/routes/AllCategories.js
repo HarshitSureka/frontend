@@ -45,7 +45,7 @@ const AllCategories = () => {
     };
 
 	const handleMovingUp = (index) => {
-		console.log('moving up categories', categories);
+		// console.log('moving up categories', categories);
 		var updatedCategories = categories;
 		if(index){
 			var tempCategory = categories[index];
@@ -58,7 +58,7 @@ const AllCategories = () => {
 			updatedCategories[index] = categories[len-1];
 			updatedCategories[len - 1] = tempCategory;
 		}
-		console.log('moving up categories', categories);
+		// console.log('moving up categories', categories);
 		Axios({
 			method: "POST",
 			data: {
@@ -68,7 +68,7 @@ const AllCategories = () => {
 			url: `/server/editcategoryordering/${skill}`,
 		}).then(() => {
             setCategories(updatedCategories);
-			console.log('changed');
+			// console.log('changed');
             window.location.reload();
 		});
     };
@@ -95,7 +95,7 @@ const AllCategories = () => {
 			url: `/server/editcategoryordering/${skill}`,
 		}).then(() => {
             setCategories(updatedCategories);
-			console.log('changed');
+			// console.log('changed');
             window.location.reload();
 		});
     };

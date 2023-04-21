@@ -118,7 +118,7 @@ const AddInformation = (props) => {
         localStorage.setItem("category", correspondingCategory);
         localStorage.setItem("sub_category", correspondingSubCategory);
 
-        console.log('formData', formData);
+        // console.log('formData', formData);
 
         Axios({
             method: "POST",

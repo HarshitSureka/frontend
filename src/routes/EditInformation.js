@@ -31,7 +31,7 @@ const EditInformation = (props) => {
             setInformation(res.data.data.information);
             setHeading(res.data.data.heading);
             if(res.data.url !== undefined){
-				console.log('url',res.data.url);
+				// console.log('url',res.data.url);
 				setImageURL(res.data.url);
 			}
 		});

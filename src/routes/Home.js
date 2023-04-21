@@ -65,13 +65,13 @@ const Home = (props) => {
 			withCredentials: true,
 			url: "/server/skills",
 		}).then((res) => {
-			console.log('res.data skills', res.data.data);
+			// console.log('res.data skills', res.data.data);
       		setSkills(res.data.data);
 			setSelectedSkill(res.data.data[0]);
-			console.log('last_played', last_played);
+			// console.log('last_played', last_played);
 			if(Object.entries(last_played).length > 0) {
 				if(last_played.skill === null){
-					console.log('skill is null');
+					// console.log('skill is null');
 					setContinueHeader('Explore new Skills');
 				}
 				else{
@@ -80,8 +80,8 @@ const Home = (props) => {
 					for(var i=0; i<tempSkills.length; i++){
 						if(tempSkills[i].skill === last_played.skill)	ind = i;
 					}
-					console.log('last_played', last_played);
-					console.log("ind", ind);
+					// console.log('last_played', last_played);
+					// console.log("ind", ind);
 					var lastPlayedSkill = tempSkills[ind];
 					var subCategories = [];
 					lastPlayedSkill.sub_categories.forEach(function(subCategory) {
@@ -90,32 +90,32 @@ const Home = (props) => {
 						}
 					})
 					var categories = lastPlayedSkill.categories;
-					console.log('categories', categories);
-					console.log('subCategories', subCategories);
+					// console.log('categories', categories);
+					// console.log('subCategories', subCategories);
 					
 					var subCategoryIndex = subCategories.indexOf(last_played.sub_category);
 					var categoryIndex = categories.indexOf(last_played.category);
 
 					if(subCategoryIndex+1 < subCategories.length){
-						console.log('continue with subCategoryIndex', subCategories[subCategoryIndex+1]);
+						// console.log('continue with subCategoryIndex', subCategories[subCategoryIndex+1]);
 						setContinueHeader('In Progress: ' + last_played.skill + ' -> ' + last_played.category );
 						setContinueButtonHeader(subCategories[subCategoryIndex+1]);
 						setNavigateTo(`/skills/${last_played.skill}/${last_played.category}/${subCategories[subCategoryIndex+1]}/information/${0}`)
 					}
 					else if(categoryIndex +1 < categories.length){
-						console.log('continue with categoryIndex', categories[categoryIndex+1]);
+						// console.log('continue with categoryIndex', categories[categoryIndex+1]);
 						setContinueHeader('In Progress: ' + last_played.skill);
 						setContinueButtonHeader(categories[categoryIndex+1]);
 						setNavigateTo(`/skills/${last_played.skill}/${categories[categoryIndex+1]}`);
 					}
 					else{
-						console.log('explore new skill');
+						// console.log('explore new skill');
 						setContinueHeader('Explore new Skills');
 					}
 				}
 			}
 			else{
-				console.log('last played not set');
+				// console.log('last played not set');
 				setContinueHeader('Explore new Skills');
 			}
 		});
@@ -127,7 +127,7 @@ const Home = (props) => {
             withCredentials: true,
             url: `/server/categories/${forSkill}`
         }).then((res) => {
-            console.log('categories', res.data);
+            // console.log('categories', res.data);
             setCategories(res.data.data);
         });
     };
@@ -152,7 +152,7 @@ const Home = (props) => {
 				setUserName(response.data.user.username);
 				setLastPlayed(response.data.user.last_played);
 				getSkills(response.data.user.last_played);
-				console.log("user is", response.data.user);
+				// console.log("user is", response.data.user);
 			}
 		}); 
 		
@@ -232,7 +232,7 @@ const Home = (props) => {
 						id={`radio-${idx}`}
 						variant={selectedSkill === skill.skill? 'success':'light'}
 						value={skill.skill}
-						onClick={(e) => {setSelectedSkill(e.target.value); getCategories(e.target.value); console.log(e.target.value);}}
+						onClick={(e) => {setSelectedSkill(e.target.value); getCategories(e.target.value); }}
 						style = {{ borderRadius: '8px', margin:'2px 0px 2px 0px' }}
 					>
 						{skill.skill.split("_").join(" ")}

@@ -61,7 +61,7 @@ const SkillCategoryPage = () => {
 					tempCheckIsCompleted = tempCheckIsCompleted.concat(score.sub_category);
 				});
 				checkIsCompleted.current = tempCheckIsCompleted;
-				console.log('checkIsCompleted', checkIsCompleted.current);
+				// console.log('checkIsCompleted', checkIsCompleted.current);
 			}
 		}); 
 		

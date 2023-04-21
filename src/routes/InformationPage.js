@@ -29,9 +29,9 @@ const InformationPage = () => {
 			withCredentials: true,
 			url: `/server/information/${skillName}/${category}/${subcategory}/${page}`,
 		}).then((res) => {
-			console.log("information data are:", res.data);
+			// console.log("information data are:", res.data);
 			if(res.data.url !== undefined){
-				console.log('url',res.data.url);
+				// console.log('url',res.data.url);
 				setImageURL(res.data.url);
 			}
 			setInformation(res.data.data);
@@ -68,7 +68,7 @@ const InformationPage = () => {
 
 			(res.data.data[0].questions).forEach((question) => {
 				if((question.category === category) && (question.sub_category === subcategory)){
-					console.log(question);
+					// console.log(question);
 					setIsQuiz(true);				
 				}
 			})
@@ -96,7 +96,7 @@ const InformationPage = () => {
 				var checkIsCompleted = response.data.user.score.filter(function (score){
 					return (score.skill === skillName && score.category === category && score.sub_category === subcategory);
 				})
-				console.log('checkIsCompleted', checkIsCompleted);
+				// console.log('checkIsCompleted', checkIsCompleted);
 				if(checkIsCompleted.length > 0) {isCompleted.current = true; setScore(checkIsCompleted[0].points);}
 				else							{isCompleted.current = false;}
 			}

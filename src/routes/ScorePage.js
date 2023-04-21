@@ -32,24 +32,24 @@ const ScorePage = (props) => {
 			withCredentials: true,
 			url: `/server/skills/${skillName}`,
 		}).then((res) => {
-			console.log("skill is ", res.data.data);
+			// console.log("skill is ", res.data.data);
 			setSkillDetails(res.data.data[0]);
 			allSubCategories.current = res.data.data[0].sub_categories.filter(function (sub_category){
 				return sub_category.category === category;
 			})
-			console.log('allSubCategories', allSubCategories.current);
+			// console.log('allSubCategories', allSubCategories.current);
 			totalSubCategories.current = allSubCategories.current.length;
 			for (var i = 0; i < totalSubCategories.current; i++){
-				console.log('allSubCategories.current[i].sub_category', allSubCategories.current[i].sub_category);
-				console.log('subcategory', subcategory);
-				console.log('(allSubCategories.current[i].sub_category === subcategory)', (allSubCategories.current[i].sub_category === subcategory));
+				// console.log('allSubCategories.current[i].sub_category', allSubCategories.current[i].sub_category);
+				// console.log('subcategory', subcategory);
+				// console.log('(allSubCategories.current[i].sub_category === subcategory)', (allSubCategories.current[i].sub_category === subcategory));
 				if(allSubCategories.current[i].sub_category === subcategory){
 					subCategoryIndex.current = i;
 					break;
 				}
 			}
-			console.log('totalSubCategories', totalSubCategories.current);
-			console.log('subCategoryIndex', subCategoryIndex.current);
+			// console.log('totalSubCategories', totalSubCategories.current);
+			// console.log('subCategoryIndex', subCategoryIndex.current);
 		});
 	};
 
