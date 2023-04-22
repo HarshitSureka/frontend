@@ -48,7 +48,7 @@ const StartPage = (props) => {
 			</Col>
 				
 			<Col> 
-			<img src={logo} alt="React Logo" />
+			<img src={logo} alt="React Logo" style="max-width: 70%; min-width: 200px;"/>
 			</Col>
 		</Row>
 		</>
