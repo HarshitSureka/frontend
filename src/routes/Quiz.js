@@ -170,7 +170,7 @@ const Quiz = () => {
 			{/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
 			<Card.Body>
 				<Card.Title>Question {(currentQuestionIndex.current) + 1}</Card.Title>
-				<Card.Text>{currentQuestion}</Card.Text>
+				<Card.Text><span style={{fontWeight: 'bold'}}>{currentQuestion}</span></Card.Text>
 				{imageURL && <><Card.Img variant="top" style={{ width: "300px", textAlign: "center", margin: "auto" }} src={imageURL} className='mt-2' /><br/><br/></>}
 			</Card.Body>
 			<ListGroup className="list-group-flush">

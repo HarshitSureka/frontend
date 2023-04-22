@@ -99,9 +99,9 @@ const SkillPage = () => {
 </svg> : null}</Card.Header>
 				<Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
-					<Card.Text>
+					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
-					</Card.Text>
+					</Card.Text> */}
 					<Button onClick={() => handleCategorySelection(category)}>Let's Go</Button> 
 				</Card.Body>
 			</Card>

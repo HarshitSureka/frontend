@@ -132,9 +132,9 @@ const AllSkills = () => {
 				<Card.Header as="h5">{skill.skill.split("_").join(" ")}</Card.Header>
 				<Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
-					<Card.Text>
+					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
-					</Card.Text>
+					</Card.Text> */}
 					<Button onClick={() => handleSelect(skill)}>Select</Button>{' '} 
 					<Button variant="warning" onClick={() => handleEdit(skill)}>Edit</Button>{' '} 
 					<Button variant="danger" onClick={() => handleDeleteWarning(skill)}>Delete</Button>{' '}

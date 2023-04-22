@@ -149,9 +149,9 @@ const AllCategories = () => {
 				<Card.Header as="h5">{category.split("_").join(" ")}</Card.Header>
 				<Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
-					<Card.Text>
+					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
-					</Card.Text>
+					</Card.Text> */}
 					<Button onClick={() => handleSelect(category)}>Select</Button>{' '} 
 					<Button variant="warning" onClick={() => handleEdit(category)}>Edit</Button>{' '} 
 					<Button variant="danger" onClick={() => handleDeleteWarning(category)}>Delete</Button>{' '}

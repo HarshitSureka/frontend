@@ -153,9 +153,9 @@ const AllSubCategories = () => {
 				<Card.Header as="h5">{subcategory.sub_category.split("_").join(" ")}</Card.Header>
 				<Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
-					<Card.Text>
+					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
-					</Card.Text>
+					</Card.Text> */}
 					<Button onClick={() => handleViewQuestions(subcategory)}>View Questions</Button>{' '} 
 					<Button onClick={() => handleViewInformation(subcategory)}>View Information</Button>{' '} 
 					<Button variant="warning" onClick={() => handleEdit(subcategory)}>Edit</Button>{' '} 

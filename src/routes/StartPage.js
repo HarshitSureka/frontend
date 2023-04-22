@@ -35,14 +35,14 @@ const StartPage = (props) => {
 
 	return (
 		<>
-		<Helmet><title>Finsu - Learn Finance the Fun Way</title></Helmet>
+		<Helmet><title>Fingo - Learn Finance the Fun Way</title></Helmet>
 		<GeneralNavbar/>
 		<br/>
 		<br/>
 		<Row style={{ margin: "auto", width: "60%"}}>
 		
 			<Col style={{ marginTop : "15%" }}>
-			<h1>Learn Finance the Fun Way!</h1>
+			<h1><span style={{fontWeight: 'bold'}}>Learn Finance the Fun Way!</span></h1>
     	    <p>Finance Simplified! Invest only 3 minutes a day to master Investing, Trading, Personal Finance, and More.</p>
 			<Button onClick={() => navigate(`/auth/login`)}>Get Started</Button> 
 			</Col>

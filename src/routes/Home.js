@@ -246,7 +246,7 @@ const Home = (props) => {
 						<Button
 						variant='light'
 						onClick={() => navigate(`/skills/${selectedSkill}/${category}`)}
-						style = {{ borderRadius: '50%', margin:'2px 0px 2px 0px' }}
+						style = {{ borderColor: 'black', borderRadius: '8px', margin:'2px 0px 2px 0px' }}
 						>
 							{category.split("_").join(" ")}
 						</Button>
