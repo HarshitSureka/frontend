@@ -178,7 +178,7 @@ const Home = (props) => {
 				{/* <Card.Title>{information.heading}</Card.Title> */}
 				
 				<Card.Text>
-					{continueHeader !== 'Explore new Skills'? <>Continue with <Button onClick={() => navigate(navigateTo)}>{continueButtonHeader}</Button> </>:null} 
+					{continueHeader !== 'Explore new Skills'? <>Continue with <Button onClick={() => navigate(navigateTo)}>{continueButtonHeader.split("_").join(" ")}</Button> </>:null} 
 				</Card.Text>
 	
 			</Card.Body>

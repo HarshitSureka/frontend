@@ -43,13 +43,16 @@ const StartPage = (props) => {
 		
 			<Col style={{ marginTop : "15%" }}>
 			<h1><span style={{fontWeight: 'bold'}}>Learn Finance the Fun Way!</span></h1>
-    	    <p>Finance Simplified! Invest only 3 minutes a day to master Investing, Trading, Personal Finance, and More.</p>
+			<br/>
+			<p> Get access to 375+ chapters on Investing, Trading, Crypto, and more. Each only 3 minutes long.</p>
+			<br/>
+			<p>Plus, challenge yourself with 1500+ quizzes to test your knowledge.</p>
 			<Button onClick={() => navigate(`/auth/login`)}>Get Started</Button> 
 			</Col>
 				
-			<Col> 
+			{/* <Col> 
 			<img src={logo} alt="React Logo" />
-			</Col>
+			</Col> */}
 		</Row>
 		</>
 	);
