@@ -16,6 +16,8 @@ import GeneralNavbar from '../components/GeneralNavbar';
 const Register = (props) => {
     const [registerUsername, setRegisterUsername] = useState("");
   	const [registerPassword, setRegisterPassword] = useState("");
+  	const [registerEmail, setRegisterEmail] = useState("");
+
   	const [authMsg, setAuthMsg] = useState("");
   	const [showAuthMsg, setShowAuthMsg] = useState(false);
 	const [showPassword, setShowPassword]=useState(false);
@@ -32,6 +34,7 @@ const Register = (props) => {
 			method: "POST",
 			data: {
 			username: registerUsername,
+			email: registerEmail,
 			password: registerPassword,
 			role: "basic"
 			},
@@ -90,6 +93,11 @@ const Register = (props) => {
                     	<Form.Control type="username" placeholder="Type your username here ..." 
 						onChange={(e) => setRegisterUsername(e.target.value)} />
                 	</Form.Group>
+					<Form.Group >
+                    	<Form.Label>Enter your email</Form.Label>
+                    	<Form.Control type="email" placeholder="Type your username here ..." 
+						onChange={(e) => setRegisterEmail(e.target.value)} />
+                	</Form.Group>
                 	<Form.Group >
 	                    <Form.Label>Enter your password</Form.Label>
                     	<Form.Control type={showPassword?"text":"password"} placeholder="Enter your password"  
@@ -113,8 +121,3 @@ const Register = (props) => {
 }
  
 export default Register;
-
-/**
- * TODO: 
- * Change Link to Routes
- */

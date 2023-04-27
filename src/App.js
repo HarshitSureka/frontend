@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, Navigate, useNavigate } f
 
 import './App.css';
 import Home from "./routes/Home";
+import EnterEmail from "./routes/EnterEmail";
 import AddQuestions from "./routes/AddQuestions";
 import AddChapters from "./routes/AddChapters";
 import AddInformation from "./routes/AddInformation";
@@ -27,6 +28,8 @@ import EditInformation from './routes/EditInformation';
 import EditSubCategory from './routes/EditSubCategory';
 import EditCategory from './routes/EditCategory';
 import EditSkill from './routes/EditSkill';
+import ForgotPassword from './routes/ForgotPassword';
+import ForgotPasswordMailSent from './routes/ForgotPasswordMailSent';
 
 const App = () => {
   return (
@@ -38,6 +41,7 @@ const App = () => {
           <Route exact path="/auth/register" element={<Register/>}/>
           <Route exact path="/skills/:skillName" element={<SkillPage/>}/>
           <Route exact path="/skills/:skillName/:categoryName" element={<SkillCategoryPage/>}/>
+          <Route exact path="/updateemail" element={<EnterEmail/>}/>
           <Route exact path="/skills/:skillName/:category/:subcategory/information/:page" element={<InformationPage/>}/>
           <Route exact path="/addquestions" element={<AddQuestions/>}/>
           <Route exact path="/addinformation" element={<AddInformation/>}/>
@@ -56,6 +60,8 @@ const App = () => {
           <Route exact path="/editsubcategory/:skill/:category/:subcategory" element={<EditSubCategory/>}/>
           <Route exact path="/editcategory/:skill/:category" element={<EditCategory/>}/>
           <Route exact path="/editskill/:skill" element={<EditSkill/>}/>
+          <Route exact path="/forgotpassword/:username/:token" element={<ForgotPassword/>}/>
+          <Route exact path="/forgotpasswordmailsent" element={<ForgotPasswordMailSent/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
     </Router>

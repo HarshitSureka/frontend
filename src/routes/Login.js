@@ -48,6 +48,22 @@ const Login = (props) => {
         });
     };
 
+    const forgotPassword = () => {
+        Axios({
+            method: "POST",
+            data: {
+                username: loginUsername,
+            },
+            withCredentials: true,
+            url: "/server/forgotpasswordform",
+        }).then(function (response) {
+            setAuthMsg(response.data.message);
+            setShowAuthMsg(true);
+            if (response.data.redirect == '/forgotpasswordmailsent') {
+                navigate(`/forgotpasswordmailsent`);
+            } 
+        });
+    };
 
     ////when a user requests for the login , we check if he is already logged in
     ////If user is already logged in redirect him to home page else
@@ -98,7 +114,7 @@ const Login = (props) => {
  					        <Form.Check type="checkbox" label="Show Password" onClick={handleShowPassword} />
   				        </Form.Group>
                         
-                        <Button  onClick={login}>Submit</Button>
+                        <Button  onClick={login}>Submit</Button>{' '}<Button variant="danger" onClick={forgotPassword}>Forgot Password</Button>
                         <br />
                         <br />
                         <div>Dont have an account? Register Now...</div>

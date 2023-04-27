@@ -1,6 +1,6 @@
 import React, { useRef, useState , useEffect} from "react";
 import Axios from "axios";
-import {useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 import {Card, Row,  Col, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
@@ -54,6 +54,9 @@ const ProfilePage = (props) => {
 				<div>
 					<br/>
 					{userName ? <h1>Welcome Back {userName}</h1> : <h1>Welcome Back</h1>}
+					<br/>
+					<Link to="/updateemail"><Button variant="warning">Update Email</Button></Link>
+					<br/>
 					{score? (score).map((score, i) =>
 					<>
 					<br/>

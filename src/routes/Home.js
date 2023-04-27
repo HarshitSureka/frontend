@@ -170,6 +170,9 @@ const Home = (props) => {
 			if (response.data.redirect == '/login') {
 				// console.log("Please log in");
 				navigate(`/auth/login`);
+			}
+			else if((response.data.redirect == '/updateemail')){
+				navigate('/updateemail');
 			} 
 			else{
 				// console.log("Already logged in");
