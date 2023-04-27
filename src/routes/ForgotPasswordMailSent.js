@@ -17,7 +17,7 @@ const ForgotPassword = (props) => {
                 <Card.Title><span style={{fontWeight: 'bold'}}>Forgot Password Link Sent</span></Card.Title>
                 
                 <Card.Text>
-                    Check your email. In case it is not show in inbox, please check spam.
+                    Check your registered email. In case it is not show in inbox, please check spam.
                 </Card.Text>
                 <Link to="/auth/login"><Button >Login</Button></Link>
 

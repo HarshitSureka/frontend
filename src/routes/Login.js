@@ -49,10 +49,13 @@ const Login = (props) => {
     };
 
     const forgotPassword = () => {
+        var link = window.location.href.substring(0, window.location.href.length-11);
+        console.log('link is', link);
         Axios({
             method: "POST",
             data: {
                 username: loginUsername,
+                link: link
             },
             withCredentials: true,
             url: "/server/forgotpasswordform",
