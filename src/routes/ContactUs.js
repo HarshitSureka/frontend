@@ -26,8 +26,7 @@ const ContactUs = (props) => {
 	const [validEmail, setValidEmail] = useState(false);
 	const [validName, setValidName] = useState(false);
 	const [validConcern, setValidConcern] = useState(false);
-	
-    const role = useRef('');
+	const [role, setRole] = useState('unknown');
 
 	const navigate = useNavigate();
 
@@ -93,10 +92,11 @@ const ContactUs = (props) => {
       		withCredentials: true,
       		url: "/server/login",
       	}).then(function (response) {
-			if (response.data.redirect == '/home') {
-                role.current = response.data.user.role;
+			console.log('con', response.data);
+			if (response.data.redirect === '/home') {
+                setRole(response.data.user.role);
         	}else{
-                role.current = 'unknown';
+                setRole('unknown');
             }
      	}); 
 
