@@ -37,10 +37,16 @@ const GeneralNavbar = ({proprole}) => {
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
             <MDBNavbarItem>
+              <MDBNavbarLink onClick = {()=> navigate(`/`)}>Home</MDBNavbarLink>
+            </MDBNavbarItem>        
+            <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/auth/login`)}>Login</MDBNavbarLink>
             </MDBNavbarItem>        
             <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/auth/register`)}>Register</MDBNavbarLink>
+            </MDBNavbarItem>                
+            <MDBNavbarItem>
+              <MDBNavbarLink onClick = {()=> navigate(`/contactus`)}>Contact Us</MDBNavbarLink>
             </MDBNavbarItem>                
           </MDBNavbarNav>
         </MDBCollapse>

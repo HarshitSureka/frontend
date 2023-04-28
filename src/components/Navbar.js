@@ -119,10 +119,16 @@ const Navbar = ({proprole}) => {
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
             <MDBNavbarItem>
+            <MDBNavbarLink onClick = {() => navigate('/home')}>Home</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
             <MDBNavbarLink onClick = {handleLogOut}>Logout</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/profilepage`)}>View Profile</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink onClick = {()=> navigate(`/contactus`)}>Contact Us</MDBNavbarLink>
             </MDBNavbarItem>
 
             {role === 'admin'?
