@@ -75,16 +75,16 @@ const Register = (props) => {
 
 	const handleUsernameChange = (e) => {
 		setRegisterUsername(e.target.value)
-		var emailRegex = /^[A-Za-z0-9]*$/;
+		var emailRegex = /\s/;
 		if(e.target.value === ''){
 			setUsernameTooltipMessage("Username can't be empty");
 			setValidUsername(false);
 		}
-		else if(emailRegex.test(e.target.value)){
-			setUsernameTooltipMessage('Username valid');
+		else if(!emailRegex.test(e.target.value)){
+			setUsernameTooltipMessage('');
 			setValidUsername(true);
 		}else{
-			setUsernameTooltipMessage('Only letters and alphabets are allowed');
+			setUsernameTooltipMessage('Spaces are not allowed');
 			setValidUsername(false);
 		}
 	};
