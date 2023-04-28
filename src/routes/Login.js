@@ -21,6 +21,9 @@ const Login = (props) => {
     const [authMsg, setAuthMsg] = useState("");
     const [showAuthMsg, setShowAuthMsg] = useState(false);
     const [showPassword, setShowPassword]=useState(false);
+    const [validUsername, setValidUsername]=useState(false);
+	const [usernameTooltipMessage, setUsernameTooltipMessage] = useState("Username can't be empty");
+
     const navigate = useNavigate();
 
 	const handleShowPassword = () =>{
@@ -47,6 +50,22 @@ const Login = (props) => {
             } 
         });
     };
+
+    const handleUsernameChange = (e) => {
+		setLoginUsername(e.target.value)
+		var emailRegex = /^[A-Za-z0-9]*$/;
+		if(e.target.value === ''){
+			setUsernameTooltipMessage("Username can't be empty");
+			setValidUsername(false);
+		}
+		else if(emailRegex.test(e.target.value)){
+			setUsernameTooltipMessage('Username valid');
+			setValidUsername(true);
+		}else{
+			setUsernameTooltipMessage('Only letters and alphabets are allowed');
+			setValidUsername(false);
+		}
+	};
 
     const forgotPassword = () => {
         var link = window.location.href.substring(0, window.location.href.length-11);
@@ -95,9 +114,6 @@ const Login = (props) => {
         <Row style={{ marginLeft: "0px",marginRight: "0px"}}>
             <Col >
                 <div>
-                    <br/>
-                    <br/>
-                    <br/>
                     <Form style={{width:"50%", marginLeft:"25%", marginTop:"3%"}}>
                         <h1>Login</h1>
                         <Toast onClose={() => setShowAuthMsg(false)} show={showAuthMsg} delay={2000} autohide>
@@ -105,9 +121,13 @@ const Login = (props) => {
                         </Toast>
                         <Form.Group >
                             <Form.Label>Enter your username</Form.Label>
+                            <Form.Text style={{ color: validUsername? 'green':'red' }}>
+							    {usernameTooltipMessage}
+						    </Form.Text>
                             <Form.Control type="username" placeholder="Type your username here ..." 
-                            onChange={(e) => setLoginUsername(e.target.value)} />
+                            onChange={handleUsernameChange} />
                         </Form.Group>
+                        <br/>
                         <Form.Group >
                             <Form.Label>Enter your password</Form.Label>
                             <Form.Control type={showPassword?"text":"password"} placeholder="Enter your password"  
@@ -116,12 +136,11 @@ const Login = (props) => {
                         <Form.Group controlId="formBasicCheckbox">
  					        <Form.Check type="checkbox" label="Show Password" onClick={handleShowPassword} />
   				        </Form.Group>
-                        
-                        <Button  onClick={login}>Submit</Button>{' '}<Button variant="danger" onClick={forgotPassword}>Forgot Password</Button>
+                          <br/>
+                        <Button variant={(validUsername)? 'success':'danger'} disabled={!validUsername} onClick={login}>Submit</Button>{' '}<Button disabled={!validUsername} variant="danger" onClick={forgotPassword}>Forgot Password</Button>
                         <br />
                         <br />
                         <div>Dont have an account? Register Now...</div>
-                        <br />
                         <Link to="/auth/register"><Button >Register</Button></Link>
                     </Form>
                 </div>

@@ -17,8 +17,11 @@ const Register = (props) => {
     const [registerUsername, setRegisterUsername] = useState("");
   	const [registerPassword, setRegisterPassword] = useState("");
   	const [registerEmail, setRegisterEmail] = useState("");
-
+	const [usernameTooltipMessage, setUsernameTooltipMessage] = useState("Username can't be empty");
+	const [emailTooltipMessage, setEmailTooltipMessage] = useState("Email can't be empty");
   	const [authMsg, setAuthMsg] = useState("");
+	const [validUsername, setValidUsername] = useState(false);
+	const [validEmail, setValidEmail] = useState(false);
   	const [showAuthMsg, setShowAuthMsg] = useState(false);
 	const [showPassword, setShowPassword]=useState(false);
 	const navigate = useNavigate();
@@ -70,7 +73,37 @@ const Register = (props) => {
 
   	}, []);
 
+	const handleUsernameChange = (e) => {
+		setRegisterUsername(e.target.value)
+		var emailRegex = /^[A-Za-z0-9]*$/;
+		if(e.target.value === ''){
+			setUsernameTooltipMessage("Username can't be empty");
+			setValidUsername(false);
+		}
+		else if(emailRegex.test(e.target.value)){
+			setUsernameTooltipMessage('Username valid');
+			setValidUsername(true);
+		}else{
+			setUsernameTooltipMessage('Only letters and alphabets are allowed');
+			setValidUsername(false);
+		}
+	};
 
+	const handleEmailChange = (e) => {
+		setRegisterEmail(e.target.value)
+		var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		if(e.target.value === ''){
+			setEmailTooltipMessage("Email can't be empty");
+			setValidEmail(false);
+		}
+		else if(emailRegex.test(e.target.value)){
+			setEmailTooltipMessage('Email valid');
+			setValidEmail(true);
+		}else{
+			setEmailTooltipMessage('Email invalid');
+			setValidEmail(false);
+		}
+	}
 
   	return (
     <>
@@ -79,25 +112,31 @@ const Register = (props) => {
     <Row style={{ marginLeft: "0px",marginRight: "0px"}}>
         <Col >
         	<div>
-				<br/>
-				<br/>
-				<br/>
 				<Form style={{width:"50%", marginLeft:"25%", marginTop:"3%"}}>
             		<h1>Register</h1>
             		<Toast onClose={() => setShowAuthMsg(false)} show={showAuthMsg} delay={2000} autohide>
           
               			<Toast.Body>{authMsg}</Toast.Body>
             		</Toast>
-                	<Form.Group >
-                    	<Form.Label>Enter a unique username</Form.Label>
-                    	<Form.Control type="username" placeholder="Type your username here ..." 
-						onChange={(e) => setRegisterUsername(e.target.value)} />
-                	</Form.Group>
+					
+					<Form.Group >
+						<Form.Label>Enter a unique username</Form.Label>
+						<Form.Text style={{ color: validUsername? 'green':'red' }}>
+							{usernameTooltipMessage}
+						</Form.Text>
+						<Form.Control type="username" placeholder="Type your username here ..." 
+						onChange={ handleUsernameChange} />
+					</Form.Group>
+					<br/>
 					<Form.Group >
                     	<Form.Label>Enter your email</Form.Label>
-                    	<Form.Control type="email" placeholder="Type your username here ..." 
-						onChange={(e) => setRegisterEmail(e.target.value)} />
+						<Form.Text style={{ color: validEmail? 'green':'red' }}>
+							{emailTooltipMessage}
+						</Form.Text>
+                    	<Form.Control type="email" placeholder="Type your email here ..." 
+						onChange={handleEmailChange} />
                 	</Form.Group>
+					<br/>
                 	<Form.Group >
 	                    <Form.Label>Enter your password</Form.Label>
                     	<Form.Control type={showPassword?"text":"password"} placeholder="Enter your password"  
@@ -106,11 +145,11 @@ const Register = (props) => {
 					<Form.Group controlId="formBasicCheckbox">
 	 					<Form.Check type="checkbox" label="Show Password" onClick={handleShowPassword} />
   					</Form.Group>
-                	<Button  onClick={register}>Submit</Button>
+					<br/>
+                	<Button variant={(validUsername && validEmail)? 'success':'danger'} disabled = {!(validUsername && validEmail)} onClick={register}>Submit</Button>
                 	<br />
                 	<br />
                 	<div>Already have an account? Login Now...</div>
-                	<br />
                 	<Link to="/auth/login"><Button >Login</Button></Link>
             	</Form>
         	</div>
