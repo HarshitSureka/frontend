@@ -31,8 +31,10 @@ const InformationPage = () => {
 		}).then((res) => {
 			// console.log("information data are:", res.data);
 			if(res.data.url !== undefined){
-				// console.log('url',res.data.url);
 				setImageURL(res.data.url);
+			}
+			else{
+				setImageURL('');
 			}
 			setInformation(res.data.data);
 			setInformationDisplay(res.data.data.information);
@@ -78,7 +80,6 @@ const InformationPage = () => {
     ////to authenticate user before allowing him to enter the home page
 	////if he is not redirect him to login page
 	useEffect ( () => {
-		// console.log("in use effect");
 		Axios({
 			method: "GET",
 			withCredentials: true,

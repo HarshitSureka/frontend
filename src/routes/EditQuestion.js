@@ -64,7 +64,11 @@ const EditQuestion = (props) => {
             // console.log('question ',res.data.data);
             setQuestionObject(res.data.data);
             setQuestion(String(res.data.data.question));
-            answersList.current = (res.data.data.correct_answers);
+            
+            (res.data.data.correct_answers).forEach(element => {
+				answersList.current.push(Number(element));
+			});
+
             // console.log('question', String(res.data.data.question));
             var tempOptionsList = [];
             (res.data.data.options).forEach(element => {

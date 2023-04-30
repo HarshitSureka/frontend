@@ -49,6 +49,9 @@ const Quiz = () => {
         setCurrentExplaination(questionSet.current[newQuestionIndex].explaination);
 		setOptionSet(questionSet.current[newQuestionIndex].options);
 		correctAnswers.current = questionSet.current[newQuestionIndex].correct_answers;
+		for(var i = 0; i<correctAnswers.current.length; i++){
+			correctAnswers.current[i] = Number(correctAnswers.current[i]);
+		}
 		setShowExplaination(false);
 
 		if(questionSet.current[newQuestionIndex].imgpath != undefined){
@@ -120,6 +123,9 @@ const Quiz = () => {
 				setImageURL('');
 			}
 			correctAnswers.current = res.data.data[0].correct_answers;
+			for(var i = 0; i<correctAnswers.current.length; i++){
+				correctAnswers.current[i] = Number(correctAnswers.current[i]);
+			}
 			var tempScore = [];
 			for(var i = 0; i < (res.data.data.length); i++) {
 				tempScore.push(0);
