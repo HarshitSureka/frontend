@@ -31,12 +31,16 @@ import EditCategory from './routes/EditCategory';
 import EditSkill from './routes/EditSkill';
 import ForgotPassword from './routes/ForgotPassword';
 import ForgotPasswordMailSent from './routes/ForgotPasswordMailSent';
+import Terms from './routes/Terms';
+import PrivacyPolicy from './routes/PrivacyPolicy';
 
 const App = () => {
   return (
     <Router>
         <Routes>
           <Route exact path="/" element={<StartPage/>}/>
+          <Route exact path="/terms" element={<Terms/>}/>
+          <Route exact path="/privacypolicy" element={<PrivacyPolicy/>}/>
           <Route exact path="/home" element={<Home/>}/>
           <Route exact path="/auth/login" element={<Login/>}/>
           <Route exact path="/auth/register" element={<Register/>}/>

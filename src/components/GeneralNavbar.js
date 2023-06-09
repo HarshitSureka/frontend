@@ -47,7 +47,13 @@ const GeneralNavbar = ({proprole}) => {
             </MDBNavbarItem>                
             <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/contactus`)}>Contact Us</MDBNavbarLink>
-            </MDBNavbarItem>                
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink onClick = {()=> navigate(`/terms`)}>Terms</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink onClick = {()=> navigate(`/privacypolicy`)}>Privacy Policy</MDBNavbarLink>
+            </MDBNavbarItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>

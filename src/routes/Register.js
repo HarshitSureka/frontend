@@ -55,6 +55,11 @@ const Register = (props) => {
      	});
   	};
    
+	const registerWithGoogle = () => {
+        // Axios does not work with Google Auth2.0 , need to navigate to the url directly
+        window.open("https://tryfingo.com/auth/login-google", "_self");
+    };
+
   	////when a user requests for the register , we check if he is already logged in
     ////If user is already logged in redirect him to home page else
     ////send the register page to let him register
@@ -149,6 +154,7 @@ const Register = (props) => {
                 	<Button variant={(validUsername && validEmail)? 'success':'danger'} disabled = {!(validUsername && validEmail)} onClick={register}>Submit</Button>
                 	<br />
                 	<br />
+					<Button onClick={registerWithGoogle}>Register With Google</Button>
                 	<div>Already have an account? Login Now...</div>
                 	<Link to="/auth/login"><Button >Login</Button></Link>
             	</Form>

@@ -51,6 +51,11 @@ const Login = (props) => {
         });
     };
 
+    const loginWithGoogle = () => {
+        // Axios does not work with Google Auth2.0 , need to navigate to the url directly
+        window.open("https://tryfingo.com/auth/login-google", "_self");
+    };
+
     const handleUsernameChange = (e) => {
 		setLoginUsername(e.target.value)
 		var emailRegex = /\s/;
@@ -140,6 +145,7 @@ const Login = (props) => {
                         <Button variant={(validUsername)? 'success':'danger'} disabled={!validUsername} onClick={login}>Submit</Button>{' '}<Button disabled={!validUsername} variant="danger" onClick={forgotPassword}>Forgot Password</Button>
                         <br />
                         <br />
+                        <Button onClick={loginWithGoogle}>Login With Google</Button>
                         <div>Dont have an account? Register Now...</div>
                         <Link to="/auth/register"><Button >Register</Button></Link>
                     </Form>
