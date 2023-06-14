@@ -44,9 +44,9 @@ const StartPage = (props) => {
 			<Col style={{ marginTop : "15%" }}>
 			<h1><span style={{fontWeight: 'bold'}}>Learn Finance the Fun Way!</span></h1>
 			<br/>
-			<p> Get access to 375+ chapters on Investing, Trading, Crypto, and more. Each only 3 minutes long.</p>
+			<p> Get access to 450+ chapters on Investing, Trading, Crypto, and more. Each only 3 minutes long.</p>
 			<br/>
-			<p>Plus, challenge yourself with 1500+ quizzes to test your knowledge.</p>
+			<p>Plus, challenge yourself with 1800+ quizzes to test your knowledge.</p>
 			<Button onClick={() => navigate(`/auth/login`)}>Get Started</Button> 
 			</Col>
 				

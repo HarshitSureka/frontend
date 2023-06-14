@@ -5,6 +5,7 @@ import Toast from 'react-bootstrap/Toast'
 import {Row, Form, Button, Col, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import GeneralNavbar from '../components/GeneralNavbar';
+import GoogleButton from 'react-google-button';
 
 ////Register page of our website
 //// registerUsername is the entered username by the user
@@ -154,7 +155,9 @@ const Register = (props) => {
                 	<Button variant={(validUsername && validEmail)? 'success':'danger'} disabled = {!(validUsername && validEmail)} onClick={register}>Submit</Button>
                 	<br />
                 	<br />
-					<Button onClick={registerWithGoogle}>Register With Google</Button>
+					{/* <Button onClick={registerWithGoogle}>Register With Google</Button> */}
+					<GoogleButton onClick={registerWithGoogle}/>
+					<br/>
                 	<div>Already have an account? Login Now...</div>
                 	<Link to="/auth/login"><Button >Login</Button></Link>
             	</Form>
