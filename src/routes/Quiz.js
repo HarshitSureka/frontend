@@ -22,8 +22,10 @@ const Quiz = () => {
 
 	const [currentQuestion, setCurrentQuestion] = useState(null);
 	const [currentExplaination, setCurrentExplaination] = useState(null);
+	const [currentCorrectOptions, setCurrentCorrectOptions] = useState(null);
 	const [optionSet, setOptionSet] = useState([]);
 	const [answersList, setAnswersList] = useState([]); 
+	const [correctOptionsText, setCorrectOptionsText] = useState([]);
 	const [currentIsCorrect, setCurrentIsCorrect] = useState(false);
 	const [currentImageName, setCurrentImageName] = useState('');
 
@@ -39,6 +41,7 @@ const Quiz = () => {
 			setCurrentIsCorrect(false);
 		}
 		setAnswersList([]);
+		setCorrectOptionsText([]);
 		setShowExplaination(true);
     };
 
@@ -48,11 +51,29 @@ const Quiz = () => {
         setCurrentQuestion(questionSet.current[newQuestionIndex].question);
         setCurrentExplaination(questionSet.current[newQuestionIndex].explaination);
 		setOptionSet(questionSet.current[newQuestionIndex].options);
+		
 		correctAnswers.current = questionSet.current[newQuestionIndex].correct_answers;
 		for(var i = 0; i<correctAnswers.current.length; i++){
 			correctAnswers.current[i] = Number(correctAnswers.current[i]);
 		}
 		setShowExplaination(false);
+
+		// console.log('correctAnswers.current', correctAnswers.current);
+
+		var tempCorrectOptionsText = [];
+		for(var i=0 ; i<questionSet.current[newQuestionIndex].options.length; i++){
+			// console.log(i, correctAnswers.current.includes(i));
+			if(correctAnswers.current.includes(i)){
+				// console.log(i, questionSet.current[newQuestionIndex].options[i]);
+				tempCorrectOptionsText = tempCorrectOptionsText.concat(questionSet.current[newQuestionIndex].options[i]);
+			}
+		}
+		setCorrectOptionsText(tempCorrectOptionsText);		
+
+		// console.log('correct options text', tempCorrectOptionsText);
+		// console.log('correct exp', currentExplaination);
+		
+		setCurrentCorrectOptions(tempCorrectOptionsText.join(', '));
 
 		if(questionSet.current[newQuestionIndex].imgpath != undefined){
 			setCurrentImageName(questionSet.current[newQuestionIndex].imgpath);
@@ -126,6 +147,21 @@ const Quiz = () => {
 			for(var i = 0; i<correctAnswers.current.length; i++){
 				correctAnswers.current[i] = Number(correctAnswers.current[i]);
 			}
+			// console.log('correctAnswers.current', correctAnswers.current);
+
+			var tempCorrectOptionsText = [];
+			for(var i=0 ; i<res.data.data[0].options.length; i++){
+				// console.log(i, correctAnswers.current.includes(i));
+				if(correctAnswers.current.includes(i)){
+					tempCorrectOptionsText = tempCorrectOptionsText.concat(res.data.data[0].options[i]);
+				}
+			}
+			setCorrectOptionsText(tempCorrectOptionsText);
+			// console.log('correct exp', currentExplaination);
+			// console.log('correct options text', tempCorrectOptionsText);
+			setCurrentCorrectOptions(tempCorrectOptionsText.join());
+
+
 			var tempScore = [];
 			for(var i = 0; i < (res.data.data.length); i++) {
 				tempScore.push(0);
@@ -194,7 +230,18 @@ const Quiz = () => {
 					<Modal.Header>
 					<Modal.Title><>{currentIsCorrect? 'Correct Answer':'Oops, That is Incorrect'}</></Modal.Title>
 					</Modal.Header>
-					<Modal.Body>{currentExplaination}</Modal.Body>
+					<Modal.Body>
+					<div>
+						Correct Answer: {currentCorrectOptions}
+					</div>
+					<br/>
+					<div>
+						Explanation: {currentExplaination}
+					</div>
+					{/* {currentCorrectOptions} */}
+					{/* {currentExplaination} */}
+					
+					</Modal.Body>
 					<Modal.Footer>
 					{((currentQuestionIndex.current) + 1 === (maxQuestions.current)) &&
 					<><Button  onClick={()=> { next(); saveScore();}}>End Quiz</Button>{' '}</>}
