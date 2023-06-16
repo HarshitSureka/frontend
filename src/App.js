@@ -8,6 +8,7 @@ import AddQuestions from "./routes/AddQuestions";
 import AddChapters from "./routes/AddChapters";
 import AddInformation from "./routes/AddInformation";
 import SkillPage from "./routes/SkillPage";
+import AboutUs from "./routes/AboutUs";
 import ContactUs from "./routes/ContactUs";
 import SkillCategoryPage from "./routes/SkillCategoryPage";
 import InformationPage from "./routes/InformationPage";
@@ -68,6 +69,7 @@ const App = () => {
           <Route exact path="/forgotpassword/:username/:token" element={<ForgotPassword/>}/>
           <Route exact path="/forgotpasswordmailsent" element={<ForgotPasswordMailSent/>}/>
           <Route exact path="/contactus" element={<ContactUs/>}/>
+          <Route exact path="/aboutus" element={<AboutUs/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
     </Router>
