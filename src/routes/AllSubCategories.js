@@ -40,7 +40,7 @@ const AllSubCategories = () => {
 		Axios({
 			method: "POST",
 			withCredentials: true,
-			url: `/server/deletesubcategory/${skill}/${category}/${deleteSubCategory.sub_category}`,
+			url: `/server/deletesubcategory/${skill}/${category}/${deleteSubCategory._id}`,
 		}).then((res) => {
 			var updatedSubCategories = subCategories.filter((subcategory) => subcategory.sub_category !== deleteSubCategory.sub_category);
             setSubCategories(updatedSubCategories);
