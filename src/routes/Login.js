@@ -117,44 +117,45 @@ const Login = (props) => {
         <>
         <Helmet><title>Login</title></Helmet>
         <GeneralNavbar/>
-        <Row style={{ marginLeft: "0px",marginRight: "0px"}}>
-            <Col >
+        <Row style={{ margin: "auto", width: "100%"}}>
+            <Col style={{ marginTop: "100px" }}>
                 <div>
-                    <Form style={{width:"50%", marginLeft:"25%", marginTop:"3%"}}>
-                        <h1>Login</h1>
+                    <Form style={{ width: "40%", marginLeft: "30%", marginRight: "30%" }}>
+                        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Login</h1>
                         <Toast onClose={() => setShowAuthMsg(false)} show={showAuthMsg} delay={2000} autohide>
                             <Toast.Body>{authMsg}</Toast.Body>
                         </Toast>
                         <Form.Group >
-                            <Form.Label>Enter your username</Form.Label>
+                            {/* <Form.Label>Enter your username</Form.Label> */}
                             <Form.Text style={{ color: validUsername? 'green':'red' }}>
 							    {usernameTooltipMessage}
 						    </Form.Text>
-                            <Form.Control type="username" placeholder="Type your username here ..." 
-                            onChange={handleUsernameChange} />
+                            <Form.Control type="username" placeholder="Enter your username" 
+                            onChange={handleUsernameChange} style={{ borderRadius: "10px", padding: "25px"}}/>
                         </Form.Group>
                         <br/>
                         <Form.Group >
-                            <Form.Label>Enter your password</Form.Label>
+                            {/* <Form.Label>Enter your password</Form.Label> */}
                             <Form.Control type={showPassword?"text":"password"} placeholder="Enter your password"  
-                            onChange={(e) => setLoginPassword(e.target.value)}/>
+                            onChange={(e) => setLoginPassword(e.target.value)} style={{ borderRadius: "10px", padding: "25px", marginBottom: "10px"}}/>
                         </Form.Group>
                         <Form.Group controlId="formBasicCheckbox">
  					        <Form.Check type="checkbox" label="Show Password" onClick={handleShowPassword} />
   				        </Form.Group>
                           <br/>
-                        <Button variant={(validUsername)? 'success':'danger'} disabled={!validUsername} onClick={login}>Submit</Button>{' '}<Button disabled={!validUsername} variant="danger" onClick={forgotPassword}>Forgot Password</Button>
+                        <Button className="sm={5}" style={{ borderRadius: "10px", padding: "13px", width: "48%", marginRight: "3%"}} variant={(validUsername)? 'success':'danger'} disabled={!validUsername} onClick={login}>Submit</Button>{' '}
+                        <Button style={{ borderRadius: "10px", padding: "13px", width: "48%"}} disabled={!validUsername} variant="danger" onClick={forgotPassword}>Forgot Password</Button>
                         <br />
                         <br />
-                        <GoogleButton onClick={loginWithGoogle}/>
+                        <hr className="hr-text" data-content="OR" />
+                        <GoogleButton style={{ width: "100%"}} onClick={loginWithGoogle}/>
 					    <br/>
-                        <div>Dont have an account? Register Now...</div>
-                        <Link to="/auth/register"><Button >Register</Button></Link>
+                        <div style={{ textAlign: "center", marginBottom: "20px" }}>Dont have an account? Register Now...</div>
+                        <Link to="/auth/register"><Button style={{ textAlign: "center", width: "100%", padding: "10px", borderRadius: "10px"}}>Register</Button></Link>
                     </Form>
                 </div>
             </Col>
         </Row>
-        
         </>
      );
 }

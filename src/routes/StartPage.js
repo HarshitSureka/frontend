@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import {Row,  Col, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import GeneralNavbar from '../components/GeneralNavbar';
-const logo = require('../finsu_mascot.png');
+const logo = require('../teach.png');
 
 ////This is the home page of the website, which is user directed to the
 ////after he has been authenticated, where he is given 2 options whether
@@ -39,20 +39,25 @@ const StartPage = (props) => {
 		<GeneralNavbar/>
 		<br/>
 		<br/>
-		<Row style={{ margin: "auto", width: "60%"}}>
-		
-			<Col style={{ marginTop : "15%" }}>
-			<h1><span style={{fontWeight: 'bold'}}>Learn Finance the Fun Way!</span></h1>
-			<br/>
-			<p> Get access to 450+ chapters on Investing, Trading, Crypto, and more. Each only 3 minutes long.</p>
-			<br/>
-			<p>Plus, challenge yourself with 1800+ quizzes to test your knowledge.</p>
-			<Button onClick={() => navigate(`/auth/login`)}>Get Started</Button> 
+		<Row style={{ margin: "auto", width: "80%"}}>
+			<Col> 
+				<img 
+					src={logo} 
+					height={500}
+					width={600}
+					fluid 
+					alt="Learn Finance Logo" 
+				/>
 			</Col>
-				
-			{/* <Col> 
-			<img src={logo} alt="React Logo" />
-			</Col> */}
+			<Col style={{ marginTop: "10%"}}>
+				<h1><span style={{fontWeight: 'bold'}}>Learn Finance the Fun Way!</span></h1>
+				<br/>
+				<h5 > Get access to 450+ chapters on Investing, Trading, Crypto, and more. Each only 3 minutes long.</h5>
+				<br/>
+				<h5>Plus, challenge yourself with 1800+ quizzes to test your knowledge.</h5>
+				<br/>
+			<Button style={{ width: "50%", marginLeft: "25%", padding: "15px", borderRadius: "15px", boxShadow: "initial" }} onClick={() => navigate(`/auth/login`)}>Get Started</Button> 
+			</Col>
 		</Row>
 		</>
 	);
