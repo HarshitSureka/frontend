@@ -2,6 +2,7 @@ import React, { Fragment, useState, useRef, useEffect } from "react";
 import Axios from "axios";
 import {Helmet} from 'react-helmet';
 import {Link, useNavigate } from 'react-router-dom';
+import '../styles/file.css';
 import {Row, Form, Button, Col, Image} from 'react-bootstrap';
 import Navbar from '../components/Navbar';
 
@@ -166,34 +167,34 @@ const AddInformation = (props) => {
         <Helmet><title>Add Information</title></Helmet>
         <Navbar proprole={role} />
 
-        <Row style={{ marginLeft: "0px",marginRight: "0px"}}>
+        <Row>
             <Col >
                 <div>
-                    <Form style={{width:"80%", marginLeft:"10%", marginTop:"10%"}}>
+                    <Form style={{width:"80%", marginLeft:"10%", marginTop:"5%"}}>
                         <h1>Add Information</h1>
                         <Form.Group >
                             <Form.Label>Enter Heading</Form.Label>
                             <Form.Control type="string" placeholder="Type heading here ..." 
-                            onChange={(e) => setHeading(e.target.value)} />
+                            onChange={(e) => setHeading(e.target.value)} style={{ borderRadius: "10px", padding: "25px"}}/>
                         </Form.Group>
                         <br></br>
 
                         <Form.Group >
                             <Form.Label>Enter Information</Form.Label>
                             <Form.Control as="textarea" placeholder="Type information here ..." 
-                            onChange={(e) => setInformation(e.target.value)} />
+                            onChange={(e) => setInformation(e.target.value)} style={{ borderRadius: "10px", padding: "25px"}}/>
                         </Form.Group>
                         <br></br>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Select Your Image</Form.Label>
-                            <Form.Control type="file" onChange={setimgfile} name='photo' placeholder="" />
+                            <Form.Control type="file" onChange={setimgfile} name='photo' style={{ borderRadius: "10px", paddingBottom: "10px"}}/>
                         </Form.Group>
                         <br></br>
                         
                         <Form.Group >
                             <Form.Label>Enter Corresponding Skill</Form.Label><br></br>
-                            <Form.Select value={correspondingSkill} onChange={handleCorrespondingSkillChange}>
+                            <Form.Select value={correspondingSkill} style={{ borderRadius: "10px", padding: "13px", width: "100%"}} onChange={handleCorrespondingSkillChange}>
                                 {skills.map((option) => (
                                 <option key={option._id} value={option.skill}>{option.skill.split("_").join(" ")}</option>
                                 ))}
@@ -204,7 +205,7 @@ const AddInformation = (props) => {
                         {categories !== undefined &&
                         <Form.Group >
                             <Form.Label>Enter Corresponding Category</Form.Label><br></br>
-                            <Form.Select value={correspondingCategory} onChange={handleCorrespondingCategoryChange}>
+                            <Form.Select style={{ borderRadius: "10px", padding: "13px", width: "100%"}} value={correspondingCategory} onChange={handleCorrespondingCategoryChange}>
                                 {categories.map((category,i) => (
                                 <option key={i} value={category}>{category.split("_").join(" ")}</option>
                                 ))}
@@ -216,7 +217,7 @@ const AddInformation = (props) => {
                         {subCategories !== undefined &&
                         <Form.Group >
                             <Form.Label>Enter Corresponding Sub Category</Form.Label><br></br>
-                            <Form.Select value={correspondingSubCategory} onChange={handleCorrespondingSubCategoryChange}>
+                            <Form.Select style={{ borderRadius: "10px", padding: "13px", width: "100%"}} value={correspondingSubCategory} onChange={handleCorrespondingSubCategoryChange}>
                                 {subCategories.map((subcategory,i) => (
                                 <option key={i} value={subcategory.sub_category}>{subcategory.sub_category.split("_").join(" ")}</option>
                                 ))}
@@ -225,7 +226,7 @@ const AddInformation = (props) => {
                         }
                         <br></br>
                         
-                        <Button  onClick={submit}>Submit</Button>
+                        <Button style={{ marginLeft: "30%", borderRadius: "10px", padding: "13px", width: "40%"}} onClick={submit}>Submit</Button>
                         <br />
                         <br />
                     </Form>

@@ -106,44 +106,44 @@ const ContactUs = (props) => {
     <>
 	<Helmet><title>Contact Us</title></Helmet>
     {role === 'unknown'? <GeneralNavbar/> : <Navbar  proprole={role}/>}
-    <Row style={{ marginLeft: "0px",marginRight: "0px"}}>
-        <Col >
+    <Row style={{  margin: "auto", width: "100%" }}>
+        <Col style={{ marginTop: "100px" }}>
         	<div>
-				<Form style={{width:"50%", marginLeft:"25%", marginTop:"3%"}}>
-            		<h1>Please fill this form</h1>
+				<Form style={{ width: "40%", marginLeft: "30%", marginRight: "30%"  }}>
+            		<h1 style={{ textAlign: "center", marginBottom: "20px" }}>Please fill this form</h1>
             		<Toast onClose={() => setShowAuthMsg(false)} show={showAuthMsg} delay={2000} autohide>
           
               			<Toast.Body>{authMsg}</Toast.Body>
             		</Toast>
 					
 					<Form.Group >
-						<Form.Label>Enter your name</Form.Label>
+						{/* <Form.Label>Enter your name</Form.Label> */}
                         <Form.Text style={{ color: validName? 'green':'red' }}>
 							{nameTooltipMessage}
 						</Form.Text>
-						<Form.Control type="name" placeholder="Type your name here ..." 
-						onChange={handleNameChange} />
+						<Form.Control type="name" placeholder="Enter your name" 
+						onChange={handleNameChange} style={{ borderRadius: "10px", padding: "25px"}}/>
 					</Form.Group>
 					<br/>
 					<Form.Group >
-                    	<Form.Label>Enter your email</Form.Label>
+                    	{/* <Form.Label>Enter your email</Form.Label> */}
 						<Form.Text style={{ color: validEmail? 'green':'red' }}>
 							{emailTooltipMessage}
 						</Form.Text>
-                    	<Form.Control type="email" placeholder="Type your email here ..." 
-						onChange={handleEmailChange} />
+                    	<Form.Control type="email" placeholder="Enter your email" 
+						onChange={handleEmailChange} style={{ borderRadius: "10px", padding: "25px"}}/>
                 	</Form.Group>
 					<br/>
                 	<Form.Group >
-                        <Form.Label>Enter your concern</Form.Label>
+                        {/* <Form.Label>Enter your concern</Form.Label> */}
                         <Form.Text style={{ color: validConcern? 'green':'red' }}>
 							{concernTooltipMessage}
 						</Form.Text>
-                        <Form.Control as="textarea" placeholder="Type your concern here ..." 
-                        onChange={handleConcernChange} />
+                        <Form.Control as="textarea" placeholder="Enter your concern" 
+                        onChange={handleConcernChange} style={{ borderRadius: "10px", padding: "25px"}}/>
                     </Form.Group>
                     <br/>
-                	<Button variant={(validEmail && validName && validConcern)? 'success':'danger'} disabled = {!(validEmail && validName && validConcern)} onClick={contactus}>Submit</Button>
+                	<Button style={{ borderRadius: "10px", padding: "13px", width: "", marginRight: "3%"}} variant={(validEmail && validName && validConcern)? 'success':'danger'} disabled = {!(validEmail && validName && validConcern)} onClick={contactus}>Submit</Button>
             	</Form>
         	</div>
         </Col>

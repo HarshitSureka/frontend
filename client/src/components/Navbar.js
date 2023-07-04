@@ -175,7 +175,7 @@ const Navbar = ({proprole}) => {
           </MDBNavbarNav>
           <div className="search-container">
           <form className='d-flex input-group w-auto'>
-            <input type='search' value={searchValue} onChange={onChangeSearchValue} className='form-control' placeholder='Type query' aria-label='Search' />
+            <input type='search' value={searchValue} onChange={onChangeSearchValue} className='form-control mr-4' placeholder='Type query' aria-label='Search' />
             <MDBBtn color='primary' onClick={() => onSearch(searchValue)}>Search</MDBBtn>
             
             <Dropdown.Menu show={searchValue!=""}>

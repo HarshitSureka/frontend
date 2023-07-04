@@ -13,6 +13,8 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {MDBBtn} from 'mdb-react-ui-kit';
+import '../styles/file.css';
+
 
 ////This is the home page of the website, which is user directed to the
 ////after he has been authenticated, where he is given 2 options whether
@@ -186,108 +188,275 @@ const Home = (props) => {
 		}); 
 		
 	}, []);
-		
+
 	return (
 		<>
-		<Helmet><title>Home</title></Helmet>
-		<Navbar  proprole={role}/>
-		<Row style={{ marginLeft: "0px",marginRight: "0px"}}>
-			<Col >
-				<div>
-					<br/>
-					<br/>
-					<br/>
-					{userName ? <h1>Welcome Back {userName}</h1> : <h1>Welcome Back</h1>}
-					
-					<br />
-					<Card className="d-flex flex-column" style={{width: "80%", margin: "0 auto", borderRadius: '15px'}}>
-
-			<Card.Header>{continueHeader}</Card.Header>
-			<Card.Body>
-				{/* <Card.Title>{information.heading}</Card.Title> */}
-				
-				<Card.Text>
-					{continueHeader !== 'Explore new Skills'? <>Continue with <Button onClick={() => navigate(navigateTo)}>{continueButtonHeader.split("_").join(" ")}</Button> </>:null} 
-				</Card.Text>
-	
-			</Card.Body>
-			</Card>
-					<br />
-					<h3>Search</h3><hr style ={{
-        height: '0.01px',
-        backgroundColor: '#000000'}}></hr>
-
-					
-					<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
-					<div className="search-container" style = {{width: "80%",}}>
-						<form className='d-flex input-group w-auto'>
-							<input type='search' value={searchValue} onChange={onChangeSearchValue} className='form-control' placeholder='Type query' aria-label='Search' />
-							<MDBBtn color='primary' onClick={() => onSearch(searchValue)}>Search</MDBBtn>
-							
-							<Dropdown.Menu show={searchValue!=""}>
-							{filteredQueries.map((item, i) => (						
-            				<Dropdown.Item key={i} onClick={() => onSearch(item)}>{item.name.split("_").join(" ")}</Dropdown.Item>
-							))}
-							</Dropdown.Menu>
-						</form>
-					</div>
-					</div>
-					<br/>
-					<h3>Explore</h3><hr style ={{
-        height: '0.01px',
-        backgroundColor: '#000000'}}></hr>
-
-					{/* <ToggleButtonGroup type="radio" name="radio">
-					{(skills)? skills.map((skill, idx) => (
-					<ToggleButton
-						key={idx}
-						id={`radio-${idx}`}
-						variant={selectedSkill === skill.skill? 'success':'outline-success'}
-						type="radio"
-						value={skill.skill}
-						checked={selectedSkill === skill.skill}
-						onChange={(e) => {setSelectedSkill(e.target.value); getCategories(e.target.value); console.log(e.target.value);}}
-					>
-						{skill.skill.split("_").join(" ")}
-					</ToggleButton>
-					)):null}
-					
-				</ToggleButtonGroup> */}
-
-				{(skills)? skills.map((skill, idx) => (
-					<>
-					<Button
-						key={idx}
-						id={`radio-${idx}`}
-						variant={selectedSkill === skill.skill? 'success':'light'}
-						value={skill.skill}
-						onClick={(e) => {setSelectedSkill(e.target.value); getCategories(e.target.value); }}
-						style = {{ borderRadius: '8px', margin:'2px 0px 2px 0px' }}
-					>
-						{skill.skill.split("_").join(" ")}
-					</Button>{'  '}</>
-					)):null}
-
-				<br/>	
-				<br/>	
-					{(categories)? categories.map((category, idx) => (
-					<>
-						<Button
-						variant='light'
-						onClick={() => navigate(`/skills/${selectedSkill}/${category}`)}
-						style = {{ borderColor: 'black', borderRadius: '8px', margin:'2px 0px 2px 0px' }}
-						>
-							{category.split("_").join(" ")}
-						</Button>
-						<br></br>
-					</>
-					)):null}
+		  <Helmet>
+			<title>Home</title>
+		  </Helmet>
+		  <Navbar proprole={role} />
+		  <div className="container mt-5">
+			<div className="row">
+			  <div className="col-md-6 mb-4">
+				{userName ? (
+				  <Card className="welcome-card">
+					<Card.Body>
+					  <h1>Welcome Back {userName}</h1>
+					  <Card.Text>
+						{continueHeader !== "Explore new Skills" ? (
+						  <>
+							Continue with{" "}
+							<Button onClick={() => navigate(navigateTo)}>
+							  {continueButtonHeader.split("_").join(" ")}
+							</Button>{" "}
+						  </>
+						) : null}
+					  </Card.Text>
+					</Card.Body>
+				  </Card>
+				) : (
+				  <Card className="welcome-card">
+					<Card.Body>
+					  <h1>Welcome Back</h1>
+					</Card.Body>
+				  </Card>
+				)}
+			  </div>
+			  <div className="col-md-6">
+				<h3>Search</h3>
+				{/* <hr style={{ height: "0.01px", backgroundColor: "#000000" }} /> */}
+				<div className="search-container">
+				  <form className="d-flex input-group w-auto">
+					<input
+					  type="search"
+					  value={searchValue}
+					  onChange={onChangeSearchValue}
+					  className="form-control"
+					  placeholder="Type query"
+					  aria-label="Search"
+					/>
+					<MDBBtn color="primary" onClick={() => onSearch(searchValue)}>
+					  Search
+					</MDBBtn>
+					<Dropdown.Menu show={searchValue !== ""}>
+					  {filteredQueries.map((item, i) => (
+						<Dropdown.Item key={i} onClick={() => onSearch(item)}>
+						  {item.name.split("_").join(" ")}
+						</Dropdown.Item>
+					  ))}
+					</Dropdown.Menu>
+				  </form>
 				</div>
-				<br/>
-			</Col>
-		</Row>
+			  </div>
+			</div>
+	  
+			<div className="row mt-5">
+			  <div className="col-md-12">
+				<h3>Explore</h3>
+				{/* <hr style={{ height: "0.01px", backgroundColor: "#000000" }} /> */}
+	  
+				<div className="row row-cols-1 row-cols-md-3 g-4">
+				  {skills ? (
+					skills.map((skill, idx) => (
+					  <div className="col" key={idx}>
+						<Card className="skill-card mb-5">
+						  <Card.Body>
+							<Card.Title>{skill.skill.split("_").join(" ")}</Card.Title>
+							<Card.Text>Additional information about the skill</Card.Text>
+							<Button
+							  variant={selectedSkill === skill.skill ? "success" : "light"}
+							  value={skill.skill}
+							  onClick={(e) => {
+								setSelectedSkill(e.target.value);
+								getCategories(e.target.value);
+							  }}
+							>
+							  Select Skill
+							</Button>
+						  </Card.Body>
+						</Card>
+					  </div>
+					))
+				  ) : (
+					<p>No skills found.</p>
+				  )}
+
+				<br />
+				<br />
+	  
+				{categories ? (
+				  categories.map((category, idx) => (
+					<Button
+					  key={idx}
+					  variant="light"
+					  onClick={() => navigate(`/skills/${selectedSkill}/${category}`)}
+					  style={{
+						borderColor: "black",
+						borderRadius: "8px",
+						margin: "2px",
+					  }}
+					>
+					  {category.split("_").join(" ")}
+					</Button>
+				  ))
+				) : (
+				  <p>No categories found.</p>
+				)}
+				</div>
+	  
+				
+			  </div>
+			</div>
+		  </div>
 		</>
-	);
+	  );
+	  
+
+	// return (
+	// 	<>
+	// 	  <Helmet>
+	// 		<title>Home</title>
+	// 	  </Helmet>
+	// 	  <Navbar proprole={role} />
+	// 	  <Row xs={1} md={2} className="g-4 mt-5">
+	// 		<Col>
+	// 			{userName ? (
+	// 			  <Card className="mb-4">
+	// 				<Card.Body>
+	// 				  <h1>Welcome Back {userName}</h1>
+
+	// 				  	{/* <Card.Title>{information.heading}</Card.Title> */}
+	// 				  <Card.Text>
+	// 				  {continueHeader !== "Explore new Skills" ? (
+	// 					<>
+	// 					  Continue with{" "}
+	// 					  <Button onClick={() => navigate(navigateTo)}>
+	// 						{continueButtonHeader.split("_").join(" ")}
+	// 					  </Button>{" "}
+	// 					</>
+	// 				  ) : null}
+	// 				</Card.Text>
+	// 				</Card.Body>
+	// 			  </Card>
+	// 			) : (
+	// 			  <Card className="mb-4">
+	// 				<Card.Body>
+	// 				  <h1>Welcome Back</h1>
+	// 				</Card.Body>
+	// 			  </Card>
+	// 			)}
+	// 		</Col>
+
+	// 		<Col>
+	// 		<h3>Search</h3>
+	// 			<hr style={{ height: "0.01px", backgroundColor: "#000000" }}></hr>
+	  
+	// 			<div style={{ display: "flex" }}>
+	// 			  <div className="search-container" style={{ width: "80%" }}>
+	// 				<form className="d-flex input-group w-auto">
+	// 				  <input
+	// 					type="search"
+	// 					value={searchValue}
+	// 					onChange={onChangeSearchValue}
+	// 					className="form-control"
+	// 					placeholder="Type query"
+	// 					aria-label="Search"
+	// 				  />
+	// 				  <MDBBtn color="primary" onClick={() => onSearch(searchValue)}>
+	// 					Search
+	// 				  </MDBBtn>
+	  
+	// 				  <Dropdown.Menu show={searchValue !== ""}>
+	// 					{filteredQueries.map((item, i) => (
+	// 					  <Dropdown.Item
+	// 						key={i}
+	// 						onClick={() => onSearch(item)}
+	// 					  >
+	// 						{item.name.split("_").join(" ")}
+	// 					  </Dropdown.Item>
+	// 					))}
+	// 				  </Dropdown.Menu>
+	// 				</form>
+	// 			  </div>
+	// 			</div>
+	// 		</Col>
+	// 	  </Row>
+	  
+	// 	<Row>
+	// 		<Col>
+	// 		  <h3>Explore</h3>
+	// 		  <hr
+	// 			style={{ height: "0.01px", backgroundColor: "#000000" }}
+	// 		  ></hr>
+	  
+	//   	{/* <ToggleButtonGroup type="radio" name="radio">
+	// 				{(skills)? skills.map((skill, idx) => (
+	// 				<ToggleButton
+	// 					key={idx}
+	// 					id={`radio-${idx}`}
+	// 					variant={selectedSkill === skill.skill? 'success':'outline-success'}
+	// 					type="radio"
+	// 					value={skill.skill}
+	// 					checked={selectedSkill === skill.skill}
+	// 					onChange={(e) => {setSelectedSkill(e.target.value); getCategories(e.target.value); console.log(e.target.value);}}
+	// 				>
+	// 					{skill.skill.split("_").join(" ")}
+	// 				</ToggleButton>
+	// 				)):null}
+					
+	// 			</ToggleButtonGroup> */}
+
+	// 		  <Row xs={1} sm={2} md={3}>
+	// 			{skills ? (
+	// 			  skills.map((skill, idx) => (
+	// 				<Col key={idx}>
+	// 				  <Button
+	// 					variant={selectedSkill === skill.skill ? "success" : "light"}
+	// 					value={skill.skill}
+	// 					onClick={(e) => {
+	// 					  setSelectedSkill(e.target.value);
+	// 					  getCategories(e.target.value);
+	// 					}}
+	// 					style={{
+	// 					  borderColor: "black",
+	// 					  borderRadius: "8px",
+	// 					  margin: "2px 0px 2px 0px",
+	// 					}}
+	// 				  >
+	// 					{skill.skill.split("_").join(" ")}
+	// 				  </Button>
+	// 				</Col>
+	// 			  ))
+	// 			) : (
+	// 			  <p>No skills found.</p>
+	// 			)}
+	// 		  </Row>
+	  
+	// 		  <br />
+	// 		  <br />
+	  
+	// 		  {categories ? (
+	// 			categories.map((category, idx) => (
+	// 			  <Button
+	// 				key={idx}
+	// 				variant="light"
+	// 				onClick={() => navigate(`/skills/${selectedSkill}/${category}`)}
+	// 				style={{
+	// 				  borderColor: "black",
+	// 				  borderRadius: "8px",
+	// 				  margin: "2px 0px 2px 0px",
+	// 				}}
+	// 			  >
+	// 				{category.split("_").join(" ")}
+	// 			  </Button>
+	// 			))
+	// 		  ) : (
+	// 			<p>No categories found.</p>
+	// 		  )}
+	// 		</Col>
+	// 	  </Row>
+	// 	</>
+	//   );
 };
 
 export default Home; 

@@ -4,6 +4,7 @@ import {Link, useNavigate } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import Navbar from '../components/Navbar';
 import GeneralNavbar from '../components/GeneralNavbar';
+import {Container} from 'react-bootstrap';
 
 const PrivacyPolicy = () => {
 	const navigate = useNavigate();
@@ -30,6 +31,9 @@ const PrivacyPolicy = () => {
         <Helmet><title>Privacy Policy</title></Helmet>
         {/* <Navbar proprole={'basic'}/> */}
         {role === 'unknown'? <GeneralNavbar/> : <Navbar  proprole={role}/>}
+
+
+        <Container className="m-5">
 
         <h1>Privacy Policy</h1>
         
@@ -208,6 +212,7 @@ const PrivacyPolicy = () => {
         <ul>
         <li>By visiting this page on our website: <a href="https://www.tryfingo.com/contact" rel="external nofollow noopener" target="_blank">https://www.tryfingo.com/contactus</a></li>
         </ul>
+        </Container>
         </>
      );
 }

@@ -204,7 +204,7 @@ const AddQuestion = (props) => {
         <>
         <Helmet><title>Add Question</title></Helmet>
         <Navbar proprole={role} />
-        <Row style={{ marginLeft: "0px",marginRight: "0px"}}>
+        <Row >
             <Col >
                 <div>
                     <Form style={{width:"80%", marginLeft:"10%", marginTop:"3%"}}>
@@ -212,13 +212,13 @@ const AddQuestion = (props) => {
                         <Form.Group >
                             <Form.Label>Enter Question</Form.Label>
                             <Form.Control as="textarea" placeholder="Type question here ..." 
-                            onChange={(e) => setQuestion(e.target.value)} />
+                            onChange={(e) => setQuestion(e.target.value)} style={{ borderRadius: "10px", padding: "25px"}}/>
                         </Form.Group>
                         <br></br>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Select Your Image</Form.Label>
-                            <Form.Control type="file" onChange={setimgfile} name='photo' placeholder="" />
+                            <Form.Control type="file" onChange={setimgfile} name='photo' placeholder="" style={{ borderRadius: "10px", padding: ""}}/>
                         </Form.Group>
                         <br></br>
 
@@ -229,20 +229,20 @@ const AddQuestion = (props) => {
                             optionsList.map( (x,i)=>{
                             return(
                             <div className="row mb-3">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-sm-6 col-md-6">
                                     
                                     <Form.Group>
                                         <Form.Check type="checkbox" onClick={()=> handleAnswer(i)} /><Form.Control type="string" placeholder="Type option here ..." 
-                                        onChange={ (e) => handleOptionInput(e,i) }/>
+                                        onChange={ (e) => handleOptionInput(e,i) } style={{ borderRadius: "10px", padding: "25px"}}/>
                                     </Form.Group>
                                 </div>
-                                <div class="form-group col-md-2 mt-4">
+                                <div class="form-group col-sm-6 col-md-6">
                                 {
                                     optionsList.length!==1 &&
-                                    <button  className="btn btn-danger mx-1" onClick={()=> handleRemove(i)}>Remove</button>
+                                    <button  className="btn btn-danger mx-1" style={{ borderRadius: "10px", padding: "13px", width: "45%"}} onClick={()=> handleRemove(i)}>Remove</button>
                                 }
                                 { optionsList.length-1===i &&
-                                    <button  className="btn btn-success" onClick={ handleAddNewOptionClick}>Add More</button>
+                                    <button  className="btn btn-success" style={{ borderRadius: "10px", padding: "13px", width: "45%"}} onClick={ handleAddNewOptionClick}>Add More</button>
                                 }
                                 </div>
                             </div>
@@ -255,13 +255,13 @@ const AddQuestion = (props) => {
                         <Form.Group >
                             <Form.Label>Enter Explaination</Form.Label>
                             <Form.Control type="string" placeholder="Type explaination here ..." 
-                            onChange={(e) => setExplaination(e.target.value)} />
+                            onChange={(e) => setExplaination(e.target.value)} style={{ borderRadius: "10px", padding: "25px"}}/>
                         </Form.Group>
                         <br></br>
 
                          <Form.Group >
                             <Form.Label>Enter Corresponding Skill</Form.Label><br></br>
-                            <Form.Select value={correspondingSkill} onChange={handleCorrespondingSkillChange}>
+                            <Form.Select style={{ borderRadius: "10px", padding: "13px", width: "100%"}} value={correspondingSkill} onChange={handleCorrespondingSkillChange}>
                                 {skills.map((option) => (
                                 <option key={option._id} value={option.skill}>{option.skill.split("_").join(" ")}</option>
                                 ))}
@@ -271,7 +271,7 @@ const AddQuestion = (props) => {
                         {categories !== undefined &&
                         <Form.Group >
                             <Form.Label>Enter Corresponding Category</Form.Label><br></br>
-                            <Form.Select value={correspondingCategory} onChange={handleCorrespondingCategoryChange}>
+                            <Form.Select style={{ borderRadius: "10px", padding: "13px", width: "100%"}} value={correspondingCategory} onChange={handleCorrespondingCategoryChange}>
                                 {categories.map((category,i) => (
                                 <option key={i} value={category}>{category.split("_").join(" ")}</option>
                                 ))}
@@ -283,7 +283,7 @@ const AddQuestion = (props) => {
                         {subCategories !== undefined &&
                         <Form.Group >
                             <Form.Label>Enter Corresponding Sub Category</Form.Label><br></br>
-                            <Form.Select value={correspondingSubCategory} onChange={handleCorrespondingSubCategoryChange}>
+                            <Form.Select style={{ borderRadius: "10px", padding: "13px", width: "100%"}} value={correspondingSubCategory} onChange={handleCorrespondingSubCategoryChange}>
                                 {subCategories.map((subcategory,i) => (
                                 <option key={i} value={subcategory.sub_category}>{subcategory.sub_category.split("_").join(" ")}</option>
                                 ))}
@@ -292,7 +292,7 @@ const AddQuestion = (props) => {
                         }
                         <br></br>
                         
-                        <Button  onClick={submit}>Submit</Button>
+                        <Button style={{ marginLeft: "30%", borderRadius: "10px", padding: "13px", width: "40%"}}  onClick={submit}>Submit</Button>
                         <br />
                         <br />
                     </Form>

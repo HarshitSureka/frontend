@@ -4,6 +4,7 @@ import {Link, useNavigate } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import Navbar from '../components/Navbar';
 import GeneralNavbar from '../components/GeneralNavbar';
+import { Container } from "react-bootstrap";
 
 const Terms = () => {
 	const navigate = useNavigate();
@@ -30,6 +31,8 @@ const Terms = () => {
         <Helmet><title>Terms and Conditions</title></Helmet>
         {/* <Navbar proprole={'basic'}/> */}
         {role === 'unknown'? <GeneralNavbar/> : <Navbar  proprole={role}/>}
+
+        <Container className="m-5">
 
         <h2><strong>Terms and Conditions</strong></h2>
 
@@ -150,7 +153,7 @@ const Terms = () => {
         <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p>
 
         <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
-
+        </Container>
         </>
      );
 }
