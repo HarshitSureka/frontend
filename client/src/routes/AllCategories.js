@@ -2,7 +2,7 @@ import React, { useRef, useState , useEffect} from "react";
 import {useParams} from 'react-router-dom';
 import Axios from "axios";
 import {Link, useNavigate } from 'react-router-dom';
-import {Modal, Badge, Card, Button, Col, Image} from 'react-bootstrap';
+import {Container, Row, Modal, Badge, Card, Button, Col, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import Navbar from '../components/Navbar';
 
@@ -137,30 +137,31 @@ const AllCategories = () => {
         <>
 		<Helmet><title>{skill} Categories</title></Helmet>
 		<Navbar  proprole={role}/>
-        <div className="skill-page">
+        <Container>
 			<br/>
 			<h2 className="text-center"><Badge pill bg="light">Edit/Delete Category</Badge></h2>
 			
-			{(categories)? ((categories).map((category, i) =>
-            <>
-			<br/>
-			<div key={i}>
-			<Card >
-				<Card.Header as="h5">{category.split("_").join(" ")}</Card.Header>
-				<Card.Body>
+
+			<Row xs={1} md={2} className="g-4 mt-5">
+          {categories.map((category, i) => (
+            <Col key={i}>
+              <Card className="mb-4">
+                <Card.Header as="h5">{category.split("_").join(" ")}</Card.Header>
+                <Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
 					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
 					</Card.Text> */}
-					<Button onClick={() => handleSelect(category)}>Select</Button>{' '} 
-					<Button variant="warning" onClick={() => handleEdit(category)}>Edit</Button>{' '} 
-					<Button variant="danger" onClick={() => handleDeleteWarning(category)}>Delete</Button>{' '}
-					<Button variant="light" onClick={() => handleMovingUp(i)}>Move Up</Button>{' '} 
-					<Button variant="dark" onClick={() => handleMovingDown(i)}>Move Down</Button>
-				</Card.Body>
-			</Card>
-			</div>
-			{categoryToDelete!=null && <Modal show={showWarning} onHide={handleCloseWarning}>
+                  <Button onClick={() => handleSelect(category)}>Select</Button>{' '}
+                  <Button variant="warning" onClick={() => handleEdit(category)}>Edit</Button>{' '}
+                  <Button variant="danger" onClick={() => handleDeleteWarning(category)}>Delete</Button>{' '}
+                  <Button variant="light" onClick={() => handleMovingUp(i)}>Move Up</Button>{' '}
+                  <Button variant="dark" onClick={() => handleMovingDown(i)}>Move Down</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+		  {categoryToDelete!=null && <Modal show={showWarning} onHide={handleCloseWarning}>
 				<Modal.Header closeButton>
 				<Modal.Title>Confirm Deleting {categoryToDelete.split("_").join(" ")}</Modal.Title>
 				</Modal.Header>
@@ -174,11 +175,9 @@ const AllCategories = () => {
 				</Button>
 				</Modal.Footer>
 			</Modal>}
-			</>
-            )):null}
-           
-		   <br></br>
-        </div>
+        </Row>
+
+        </Container>
 		
         </>
      );

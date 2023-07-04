@@ -14,7 +14,7 @@ input[type=file]::file-selector-button {
   }
 
   .welcome-card {
-    background: linear-gradient(to right, #f2994a, #f2c94c);
+    background: linear-gradient(to right, #015c76, #5c8793);
     border-radius: 15px;
     color: white;
     padding: 20px;
@@ -25,4 +25,23 @@ input[type=file]::file-selector-button {
     border: 1px solid #dee2e6;
     padding: 20px;
   }
+
+  .categories {
+    margin-top: 10px;
+  }
+
+  .checkmark-icon {
+    font-size: 1.2rem;
+    color: gray;
+    margin-left: 10px;
+  }
+  
+  .checkmark-icon.completed {
+    color: green;
+  }
+  
+  
+  
+  
+  
   

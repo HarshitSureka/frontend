@@ -207,7 +207,7 @@ const Quiz = () => {
 		<br/>
 		<h2 className="text-center"><Badge pill bg="light">{skillName.split("_").join(" ")} {'->'} {category.split("_").join(" ")} {'->'} {subcategory.split("_").join(" ")}</Badge></h2>
 
-		<Card className="d-flex flex-column" style={{width: "80%", margin: "0 auto", borderRadius: '15px'}}>
+		<Card className="d-flex flex-column" style={{width: "80%", marginTop: "25%", marginBottom: "25%", borderRadius: '15px'}}>
 
 			{/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
 			<Card.Body>
