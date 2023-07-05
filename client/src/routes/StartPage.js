@@ -39,7 +39,43 @@ const StartPage = (props) => {
 		<GeneralNavbar/>
 		<br/>
 		<br/>
-		<Row style={{ margin: "auto", width: "80%"}}>
+
+		<Row style={{ margin: 'auto', width: '80%' }}>
+      <Col xs={12} md={6} style={{ marginTop: '10%' }}>
+        <img
+          src={logo}
+          className="img-fluid"
+          alt="Learn Finance Logo"
+        />
+      </Col>
+      <Col xs={12} md={6} style={{ marginTop: '10%' }}>
+        <h1>
+          <span style={{ fontWeight: 'bold' }}>Learn Finance the Fun Way!</span>
+        </h1>
+        <br />
+        <h5>
+          Get access to 450+ chapters on Investing, Trading, Crypto, and more.
+          Each only 3 minutes long.
+        </h5>
+        <br />
+        <h5>Plus, challenge yourself with 1800+ quizzes to test your knowledge.</h5>
+        <br />
+        <Button
+          style={{
+            width: '50%',
+            marginLeft: '25%',
+            padding: '15px',
+            borderRadius: '15px',
+            boxShadow: 'initial',
+          }}
+          onClick={() => navigate('/auth/login')}
+        >
+          Get Started
+        </Button>
+      </Col>
+    </Row>
+
+		{/* <Row style={{ margin: "auto", width: "80%"}}>
 			<Col> 
 				<img 
 					src={logo} 
@@ -58,7 +94,7 @@ const StartPage = (props) => {
 				<br/>
 			<Button style={{ width: "50%", marginLeft: "25%", padding: "15px", borderRadius: "15px", boxShadow: "initial" }} onClick={() => navigate(`/auth/login`)}>Get Started</Button> 
 			</Col>
-		</Row>
+		</Row> */}
 		</>
 	);
 };

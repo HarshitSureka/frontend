@@ -2,7 +2,7 @@ import React, { useRef, useState , useEffect} from "react";
 import {useParams} from 'react-router-dom';
 import Axios from "axios";
 import {Link, useNavigate } from 'react-router-dom';
-import {Modal, Badge, Card, Button, Col, Image} from 'react-bootstrap';
+import {Container, Row, Modal, Badge, Card, Button, Col, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import Navbar from '../components/Navbar';
 
@@ -141,17 +141,16 @@ const AllSubCategories = () => {
         <>
 		<Helmet><title>{skill} {category} SubCategories</title></Helmet>
 		<Navbar  proprole={role}/>
-        <div className="skill-page">
+        <Container>
 			<br/>
 			<h2 className="text-center"><Badge pill bg="light">Edit/Delete Sub Category</Badge></h2>
 			
-			{(subCategories)? ((subCategories).map((subcategory, i) =>
-            <>
-			<br/>
-			<div key={i}>
-			<Card >
-				<Card.Header as="h5">{subcategory.sub_category.split("_").join(" ")}</Card.Header>
-				<Card.Body>
+			<Row xs={1} md={1} className="g-4 mt-5">
+			{subCategories.map((subcategory, i) => (
+			<Col key={i}>
+              <Card className="mb-4">
+                <Card.Header as="h5">{subcategory.sub_category.split("_").join(" ")}</Card.Header>
+                <Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
 					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
@@ -163,8 +162,9 @@ const AllSubCategories = () => {
 					<Button variant="light" onClick={() => handleMovingUp(i)}>Move Up</Button>{' '} 
 					<Button variant="dark" onClick={() => handleMovingDown(i)}>Move Down</Button>
 				</Card.Body>
-			</Card>
-			</div>
+              </Card>
+            </Col>
+          ))}
 			{subCategoryToDelete!=null && <Modal show={showWarning} onHide={handleCloseWarning}>
 				<Modal.Header closeButton>
 					<Modal.Title>Confirm Deleting {subCategoryToDelete.sub_category.split("_").join(" ")}</Modal.Title>
@@ -178,13 +178,9 @@ const AllSubCategories = () => {
 					Delete
 					</Button>
 				</Modal.Footer>
-				</Modal>}
-			</>
-            )):null}
-           
-		   <br></br>
-        </div>
-		
+			</Modal>}
+		</Row>
+		</Container>    
         </>
      );
 }

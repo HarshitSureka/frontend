@@ -268,7 +268,7 @@ const Home = (props) => {
 			<div className="row mt-5">
   <div className="col-md-12">
     <h3>Explore</h3>
-    <div className="row row-cols-1 row-cols-md-3 g-4">
+    <div className="row row-cols-1 row-cols-md-3 col-sm-2 g-4">
       {skills ? (
         skills.map((skill, idx) => (
           <div className="col" key={idx}>

@@ -2,7 +2,7 @@ import React, { useRef, useState , useEffect} from "react";
 import {useParams} from 'react-router-dom';
 import Axios from "axios";
 import {Link, useNavigate } from 'react-router-dom';
-import {Modal, Badge, Row, Form, Button, Col, Image} from 'react-bootstrap';
+import {Modal, Badge, Row, Form, Button, Col, Image, Container} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import Navbar from '../components/Navbar';
 import Card from 'react-bootstrap/Card';
@@ -79,17 +79,16 @@ const AllQuestions = () => {
         <>
 		<Helmet><title>All Questions</title></Helmet>
 		<Navbar  proprole={role}/>
-        <div className="skill-page">
+        <Container>
 			<br/>
 			<h2 className="text-center"><Badge pill bg="light">Edit/Delete Questions</Badge></h2>
 			
-			{(questionsList)? ((questionsList).map((question, i) =>
-            <>
-			<br/>
-			<div key={i}>
-			<Card >
-				{/* <Card.Header as="h5">{question.question}</Card.Header> */}
-				<Card.Body>
+			<Row xs={1} md={2} className="g-4 mt-5">
+			{questionsList.map((question, i) => (
+			<Col key={i}>
+              <Card className="mb-4">
+                {/* <Card.Header as="h5">{question.question}</Card.Header> */}
+                <Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
 					<Card.Text>
 					{question.question}
@@ -97,13 +96,9 @@ const AllQuestions = () => {
 					<Button variant="warning" onClick={() => handleEdit(question)}>Edit</Button>{' '} 
 					<Button variant="danger" onClick={() => handleDeleteWarning(question)}>Delete</Button> 
 				</Card.Body>
-			</Card>
-			</div>
-			</>
-            )):null}
-           
-		   <br></br>
-        </div>
+              </Card>
+            </Col>			
+			))}
 		{questionToDelete!=null && <Modal show={showWarning} onHide={handleCloseWarning}>
 			<Modal.Header closeButton>
 			<Modal.Title>Confirm Deleting {questionToDelete.question}</Modal.Title>
@@ -118,6 +113,8 @@ const AllQuestions = () => {
 			</Button>
 			</Modal.Footer>
 		</Modal>}
+		</Row>
+		</Container>
         </>
      );
 }

@@ -2,7 +2,7 @@ import React, { useRef, useState , useEffect} from "react";
 import {useParams} from 'react-router-dom';
 import Axios from "axios";
 import {Link, useNavigate } from 'react-router-dom';
-import {Modal, Badge, Row, Form, Button, Col, Image} from 'react-bootstrap';
+import {Modal, Badge, Row, Form, Button, Col, Image, Container} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import Navbar from '../components/Navbar';
 import Card from 'react-bootstrap/Card';
@@ -81,17 +81,16 @@ const AllInformation = () => {
         <>
 		<Helmet><title>All Information</title></Helmet>
 		<Navbar  proprole={role}/>
-        <div className="skill-page">
+        <Container>
 			<br/>
 			<h2 className="text-center"><Badge pill bg="light">Edit/Delete Information</Badge></h2>
 			
-			{(informationList)? ((informationList).map((information, i) =>
-            <>
-			<br/>
-			<div key={i}>
-			<Card >
-				<Card.Header as="h5">{information.heading}</Card.Header>
-				<Card.Body>
+			<Row xs={1} md={2} className="g-4 mt-5">
+			{informationList.map((information, i) => (
+			<Col key={i}>
+				<Card className="mb-4">
+					<Card.Header as="h5">{information.heading}</Card.Header>
+					<Card.Body>
 					{/* <Card.Title>{category}</Card.Title> */}
 					<Card.Text>
 					{/* {information.information} */}
@@ -99,27 +98,26 @@ const AllInformation = () => {
 					<Button onClick={() => handleEdit(information)}>Edit</Button>{' '} 
 					<Button onClick={() => handleDeleteWarning(information)}>Delete</Button> 
 				</Card.Body>
-			</Card>
-			</div>
+				</Card>
+			</Col>
+			))}
+
 			{infoToDelete!=null && <Modal show={showWarning} onHide={handleCloseWarning}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Deleting {infoToDelete.heading}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>You sure, you want to delete?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() =>{ setInfoToDelete(null); handleCloseWarning(); }}>
-            Cancel
-          </Button>
-          <Button variant="danger" onClick={() => {handleDelete(infoToDelete); setInfoToDelete(null); handleCloseWarning(); }}>
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>}
-			</>
-            )):null}
-           
-		   <br></br>
-        </div>
+			<Modal.Header closeButton>
+			<Modal.Title>Confirm Deleting {infoToDelete.heading}</Modal.Title>
+			</Modal.Header>
+			<Modal.Body>You sure, you want to delete?</Modal.Body>
+			<Modal.Footer>
+			<Button variant="secondary" onClick={() =>{ setInfoToDelete(null); handleCloseWarning(); }}>
+				Cancel
+			</Button>
+			<Button variant="danger" onClick={() => {handleDelete(infoToDelete); setInfoToDelete(null); handleCloseWarning(); }}>
+				Delete
+			</Button>
+			</Modal.Footer>
+		</Modal>}
+		</Row>
+		</Container>
 		
         </>
      );

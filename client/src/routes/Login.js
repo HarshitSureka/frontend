@@ -143,8 +143,28 @@ const Login = (props) => {
  					        <Form.Check type="checkbox" label="Show Password" onClick={handleShowPassword} />
   				        </Form.Group>
                           <br/>
-                        <Button className="sm={5}" style={{ borderRadius: "10px", padding: "13px", width: "48%", marginRight: "3%"}} variant={(validUsername)? 'success':'danger'} disabled={!validUsername} onClick={login}>Submit</Button>{' '}
-                        <Button style={{ borderRadius: "10px", padding: "13px", width: "48%"}} disabled={!validUsername} variant="danger" onClick={forgotPassword}>Forgot Password</Button>
+                          <Row className="justify-content-md-cente">
+                            <Col md={6} sm={6}>
+                                <Button
+                                style={{ borderRadius: '10px', padding: '13px', width: '100%', marginBottom: '10px' }}
+                                variant={validUsername ? 'success' : 'danger'}
+                                disabled={!validUsername}
+                                onClick={login}
+                                >
+                                Submit
+                                </Button>
+                            </Col>
+                            <Col md={6} sm={6}>
+                                <Button
+                                style={{ borderRadius: '10px', padding: '13px', width: '100%' }}
+                                disabled={!validUsername}
+                                variant="danger"
+                                onClick={forgotPassword}
+                                >
+                                Forgot Password
+                                </Button>
+                            </Col>
+                         </Row>
                         <br />
                         <br />
                         <hr className="hr-text" data-content="OR" />
