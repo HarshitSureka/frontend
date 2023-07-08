@@ -152,13 +152,13 @@ const Register = (props) => {
 	 					<Form.Check type="checkbox" label="Show Password" onClick={handleShowPassword} />
   					</Form.Group>
 					<br/>
-                	<Button style={{ borderRadius: "10px", padding: "13px", width: "100%"}} variant={(validUsername && validEmail)? 'success':'danger'} disabled = {!(validUsername && validEmail)} onClick={register}>Submit</Button>
+                	<Button style={{ borderRadius: "10px", padding: "13px", width: "100%", boxShadow: `0px 7px ${validUsername ? '#1a5928' : '#ab2a2a'}`,}} variant={(validUsername && validEmail)? 'success':'danger'} disabled = {!(validUsername && validEmail)} onClick={register}>Submit</Button>
                 	<br />
                 	<br />
-					<GoogleButton style={{ width: "100%"}}  onClick={registerWithGoogle}/>
+					<GoogleButton style={{ width: "100%", borderRadius: '10px', boxShadow: '0px 7px #056fdf'}}  onClick={registerWithGoogle}/>
 					<br/>
                 	<div style={{ textAlign: "center", marginBottom: "20px" }}>Already have an account? Login Now...</div>
-                	<Link to="/auth/login"><Button style={{ textAlign: "center", width: "100%", padding: "10px", borderRadius: "10px"}}>Login</Button></Link>
+                	<Link to="/auth/login"><Button style={{ textAlign: "center", width: "100%", padding: "10px", borderRadius: "10px", boxShadow: '0px 7px #056fdf', marginBottom: '20px',}}>Login</Button></Link>
             	</Form>
         	</div>
         </Col>

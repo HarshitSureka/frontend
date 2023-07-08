@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import {Row,  Col, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import GeneralNavbar from '../components/GeneralNavbar';
-const logo = require('../teach.png');
+const logo = require('../images/teach.png');
 
 ////This is the home page of the website, which is user directed to the
 ////after he has been authenticated, where he is given 2 options whether
@@ -63,10 +63,12 @@ const StartPage = (props) => {
         <Button
           style={{
             width: '50%',
+			backgroundColor: '#28a745',
+			borderColor: '#28a745',
             marginLeft: '25%',
             padding: '15px',
             borderRadius: '15px',
-            boxShadow: 'initial',
+            boxShadow: '0px 7px #1a5928',
           }}
           onClick={() => navigate('/auth/login')}
         >

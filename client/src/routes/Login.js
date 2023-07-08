@@ -146,7 +146,7 @@ const Login = (props) => {
                           <Row className="justify-content-md-cente">
                             <Col md={6} sm={6}>
                                 <Button
-                                style={{ borderRadius: '10px', padding: '13px', width: '100%', marginBottom: '10px' }}
+                                style={{ borderRadius: '10px', padding: '13px', width: '100%', marginBottom: '10px', boxShadow: `0px 7px ${validUsername ? '#1a5928' : '#ab2a2a'}`,}}
                                 variant={validUsername ? 'success' : 'danger'}
                                 disabled={!validUsername}
                                 onClick={login}
@@ -156,7 +156,7 @@ const Login = (props) => {
                             </Col>
                             <Col md={6} sm={6}>
                                 <Button
-                                style={{ borderRadius: '10px', padding: '13px', width: '100%' }}
+                                style={{ borderRadius: '10px', padding: '13px', width: '100%', boxShadow: '0px 7px #ab2a2a', }}
                                 disabled={!validUsername}
                                 variant="danger"
                                 onClick={forgotPassword}
@@ -168,10 +168,10 @@ const Login = (props) => {
                         <br />
                         <br />
                         <hr className="hr-text" data-content="OR" />
-                        <GoogleButton style={{ width: "100%"}} onClick={loginWithGoogle}/>
+                        <GoogleButton style={{ width: "100%", boxShadow: '0px 7px #056fdf', borderRadius: "10px"}} onClick={loginWithGoogle}/>
 					    <br/>
                         <div style={{ textAlign: "center", marginBottom: "20px" }}>Dont have an account? Register Now...</div>
-                        <Link to="/auth/register"><Button style={{ textAlign: "center", width: "100%", padding: "10px", borderRadius: "10px"}}>Register</Button></Link>
+                        <Link to="/auth/register"><Button style={{ textAlign: "center", width: "100%", padding: "10px", borderRadius: "10px", boxShadow: '0px 7px #056fdf',}}>Register</Button></Link>
                     </Form>
                 </div>
             </Col>

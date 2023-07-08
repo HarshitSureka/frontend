@@ -11,7 +11,14 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
-import book from '../book.png';
+import image0 from '../images/0.png';
+import image1 from '../images/1.png';
+import image2 from '../images/2.png';
+import image3 from '../images/3.png';
+import image4 from '../images/4.png';
+import image5 from '../images/5.png';
+import image6 from '../images/6.png';
+import image7 from '../images/7.png';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {MDBBtn} from 'mdb-react-ui-kit';
 import '../styles/file.css';
@@ -42,6 +49,12 @@ const Home = (props) => {
 	const [completedSkills, setCompletedSkills] = useState([]);
 	const [completedCategories, setCompletedCategories] = useState([]);
 	const navigate = useNavigate();
+
+
+	const images = [image0, image1, image2, image3, image4, image5, image6, image7];
+
+
+
 
 	const onChangeSearchValue = (event) => {
 		setSearchValue(event.target.value);
@@ -268,12 +281,13 @@ const Home = (props) => {
 			<div className="row mt-5">
   <div className="col-md-12">
     <h3>Explore</h3>
-    <div className="row row-cols-1 row-cols-md-3 col-sm-2 g-4">
+    <div className="row row-cols-1 row-cols-md-3 g-4">
       {skills ? (
         skills.map((skill, idx) => (
+			console.log(idx),
           <div className="col" key={idx}>
             <Card className={`skill-card mt-1 mb-5 ${selectedSkill === skill.skill ? 'selected' : ''}`}>
-              <Card.Img variant="top" src={book} alt={skill.skill} />
+              <Card.Img variant="top" src={images[idx]} alt={skill.skill} />
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-center">
                   <Card.Title>{skill.skill.split("_").join(" ")}</Card.Title>
@@ -283,7 +297,7 @@ const Home = (props) => {
                 </div>
                 <Card.Text>Additional information about the skill</Card.Text>
                 <Button
-                  variant={selectedSkill === skill.skill ? "success" : "light"}
+                  variant={selectedSkill === skill.skill ? "success" : "success"}
                   value={skill.skill}
                   onClick={(e) => {
                     setSelectedSkill(e.target.value);
@@ -292,9 +306,8 @@ const Home = (props) => {
                 >
                   Learn
                 </Button>
-              </Card.Body>
-            </Card>
-            {selectedSkill === skill.skill && (
+
+				{selectedSkill === skill.skill && (
               <div className="categories">
                 {categories ? (
                   categories.map((category, idx) => (
@@ -319,6 +332,8 @@ const Home = (props) => {
                 )}
               </div>
             )}
+              </Card.Body>
+            </Card>
           </div>
         ))
       ) : (

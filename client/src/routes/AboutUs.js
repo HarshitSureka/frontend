@@ -10,8 +10,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SocialIcon } from 'react-social-icons';
 
-const sneh = require('../sneh.jpg');
-const harshit = require('../harshit.jpg');
+const sneh = require('../images/sneh.jpg');
+const harshit = require('../images/harshit.jpg');
 
 const AboutUs = () => {
 	const navigate = useNavigate();

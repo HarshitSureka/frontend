@@ -1,4 +1,5 @@
 import React, { useState ,useRef, useEffect} from "react";
+import {Button} from 'react-bootstrap';
 import {
   MDBContainer,
   MDBNavbar,
@@ -15,9 +16,15 @@ import {Link, useNavigate } from 'react-router-dom';
 
 const GeneralNavbar = ({proprole}) => {
 
-  
-
     const [showBasic, setShowBasic] = useState(false);
+
+    const [darkMode, setDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+      setDarkMode(!darkMode);
+      // You can store the dark mode preference in local storage or a state management system like Redux
+    };
+    
 	const navigate = useNavigate();
 
   return (
@@ -57,6 +64,11 @@ const GeneralNavbar = ({proprole}) => {
             <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/privacypolicy`)}>Privacy Policy</MDBNavbarLink>
             </MDBNavbarItem>
+
+            <Button variant={darkMode ? 'light' : 'dark'} onClick={toggleDarkMode}>
+                {darkMode ? 'Light Mode' : 'Dark Mode'}
+          </Button>
+
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>

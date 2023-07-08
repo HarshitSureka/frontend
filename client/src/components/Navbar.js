@@ -17,6 +17,7 @@ import {
   MDBCollapse,
 } from 'mdb-react-ui-kit';
 import {Link, useNavigate } from 'react-router-dom';
+import {Button} from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -29,6 +30,16 @@ const Navbar = ({proprole}) => {
   const [role, setRole] = useState('');
 
 	const navigate = useNavigate();
+
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    // You can store the dark mode preference in local storage or a state management system like Redux
+  };
+
+
 
   const handleLogOut = () =>{
 		// console.log('logging Out!!');
@@ -103,8 +114,8 @@ const Navbar = ({proprole}) => {
 	},[]);
 
   return (
-    <MDBNavbar expand='lg' light bgColor='light'>
-      <MDBContainer fluid>
+    <MDBNavbar expand='lg' light bgColor='light' className={darkMode ? 'dark-mode' : 'light-mode'}>
+      <MDBContainer fluid bg={darkMode ? 'dark' : 'light'} variant={darkMode ? 'dark' : 'light'}>
         <MDBNavbarBrand onClick ={() => navigate(`/home`)}><span style={{fontWeight: 'bold'}}>Fingo</span></MDBNavbarBrand>
 
         <MDBNavbarToggler
@@ -173,7 +184,11 @@ const Navbar = ({proprole}) => {
             }
 
           </MDBNavbarNav>
-          <div className="search-container">
+
+          <Button variant={darkMode ? 'light' : 'dark'} onClick={toggleDarkMode}>
+            {darkMode ? 'Light Mode' : 'Dark Mode'}
+          </Button>
+          {/* <div className="search-container">
           <form className='d-flex input-group w-auto'>
             <input type='search' value={searchValue} onChange={onChangeSearchValue} className='form-control mr-4' placeholder='Type query' aria-label='Search' />
             <MDBBtn color='primary' onClick={() => onSearch(searchValue)}>Search</MDBBtn>
@@ -184,7 +199,7 @@ const Navbar = ({proprole}) => {
 						))}
             </Dropdown.Menu>
           </form>
-          </div>
+          </div> */}
 
         </MDBCollapse>
       </MDBContainer>

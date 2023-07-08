@@ -4,7 +4,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: -apple-system, BlinkMacSystemFont, Nunito, sans-serif;
   margin: 0;
-  background: linear-gradient(to bottom, #6af1bd, #5394ea);
+  background: #fff;
   background-attachment: fixed;
 }
 
