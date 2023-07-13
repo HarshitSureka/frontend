@@ -194,7 +194,7 @@ const AddChapters = (props) => {
                                 onChange={(e) => setSkill(e.target.value)} style={{ borderRadius: "10px", padding: "25px"}} />
                             </Form.Group>
                             <br></br>
-                            <Button  style={{ borderRadius: "10px", padding: "13px", width: "10%"}} onClick={submitForSkill}>Submit</Button>
+                            <Button variant="success" style={{ borderRadius: "10px", padding: "13px", width: "10%", boxShadow: '0px 7px #1a5928'}} onClick={submitForSkill}>Submit</Button>
                                     
                         </Form>
                     </Tab>
@@ -243,7 +243,7 @@ const AddChapters = (props) => {
                             </div>
                             <br></br>
 
-                            <Button style={{ borderRadius: "10px", padding: "13px", width: "40%"}} onClick={submitForCategories}>Submit</Button>
+                            <Button variant="success" style={{ borderRadius: "10px", padding: "13px", width: "40%", boxShadow: '0px 7px #1a5928'}} onClick={submitForCategories}>Submit</Button>
                                         
                         </Form>
                     </Tab>
