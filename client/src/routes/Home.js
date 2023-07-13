@@ -56,7 +56,6 @@ const Home = (props) => {
 		{ title: 'Day Streak', value: '30', icon: FaCalendar, color: '#F9C80E' },
 		{ title: 'Total XP', value: '5000', icon: FaStar, color: '#FF6B6B' },
 		{ title: 'Current League', value: 'Gold', icon: FaTrophy, color: '#7A77FF' },
-		{ title: 'Top 3 Finishes', value: '10', icon: FaMedal, color: '#43AA8B' },
 	  ];
 
 	const images = [image0, image1, image2, image3, image4, image5, image6, image7];
@@ -242,7 +241,7 @@ const Home = (props) => {
 						{continueHeader !== "Explore new Skills" ? (
 						  <>
 							Continue with{" "}
-							<Button variant="success" onClick={() => navigate(navigateTo)}>
+							<Button variant="primary" onClick={() => navigate(navigateTo)}>
 							  {continueButtonHeader.split("_").join(" ")}
 							</Button>{" "}
 						  </>
