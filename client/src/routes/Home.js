@@ -256,7 +256,6 @@ const Home = (props) => {
 				)}
 			  </div>
 			  <div className="col-md-6 w-100">
-				<h3>Search</h3>
 				<div className="search-container mb-3">
 				  <form className="d-flex input-group" style={{ width: "100%" }} >
 					<input
