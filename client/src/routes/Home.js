@@ -59,12 +59,6 @@ const Home = (props) => {
 		{ title: 'Top 3 Finishes', value: '10', icon: FaMedal, color: '#43AA8B' },
 	  ];
 
-	  const achievements = [
-		{ title: 'Beginner', icon: FaStar, color: '#32CC8F', progress: 20 },
-		{ title: 'Intermediate', icon: FaStar, color: '#845EC2', progress: 40 },
-		{ title: 'Advanced', icon: FaStar, color: '#FF6F91', progress: 60 },
-	  ];
-
 	const images = [image0, image1, image2, image3, image4, image5, image6, image7];
 
 
@@ -292,7 +286,7 @@ const Home = (props) => {
 			</div>
 
 			<Row>
-				<Col md={6}>
+				<Col md={3}>
 				<h3>Statistics</h3>
 				<Row>
 					{statistics.map((stat, index) => (
@@ -313,34 +307,6 @@ const Home = (props) => {
 					</Col>
 					))}
 				</Row>
-				</Col>
-				<Col md={6}>
-				<h3>Achievements</h3>
-				<Card>
-            <Card.Body>
-              {achievements.map((achievement, index) => (
-                <div
-                  key={index}
-                  className="achievement-card"
-                  style={{ backgroundColor: achievement.color, padding: "10px", marginBottom: "10px", borderRadius: "10px" }}
-                >
-                  <div className="d-flex align-items-center">
-                    <div className="icon-container mr-5">
-                      <achievement.icon size={24} color="#FFF" />
-                    </div>
-                    <div className="achievement-info">
-                      <h5>{achievement.title}</h5>
-                      <ProgressBar
-                        now={achievement.progress}
-                        label={`${achievement.progress}%`}
-                        variant="light"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </Card.Body>
-          </Card>
 				</Col>
 			</Row>
 
