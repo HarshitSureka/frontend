@@ -14,7 +14,7 @@ input[type=file]::file-selector-button {
   }
 
   .welcome-card {
-    background: linear-gradient(to right, #015c76, #5c8793);
+    background: linear-gradient(to right, #1a5928, #75ed8f);
     border-radius: 15px;
     color: white;
     padding: 20px;

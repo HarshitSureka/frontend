@@ -89,7 +89,7 @@ const SkillPage = () => {
 			<br/>
 			<h2 className="text-center"><Badge pill bg="light">{skillName.split("_").join(" ")}</Badge></h2>
 			
-			<Row xs={1} md={2} className="g-4 mt-5">
+			<Row xs={1} className="g-4 mt-5">
 			{categories.map((category, i) => (
 			<Col key={i}>
 			<Card className="mb-4">
@@ -102,7 +102,7 @@ const SkillPage = () => {
 					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
 					</Card.Text> */}
-					<Button onClick={() => handleCategorySelection(category)}>Let's Go</Button> 
+					<Button variant="success" style={{boxShadow: '0px 7px #1a5928'}} onClick={() => handleCategorySelection(category)}>Let's Go</Button> 
 				</Card.Body>
 			</Card>
 			</Col>

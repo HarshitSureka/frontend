@@ -171,7 +171,7 @@ const Login = (props) => {
                         <GoogleButton style={{ width: "100%", boxShadow: '0px 7px #056fdf', borderRadius: "10px"}} onClick={loginWithGoogle}/>
 					    <br/>
                         <div style={{ textAlign: "center", marginBottom: "20px" }}>Dont have an account? Register Now...</div>
-                        <Link to="/auth/register"><Button style={{ textAlign: "center", width: "100%", padding: "10px", borderRadius: "10px", boxShadow: '0px 7px #056fdf',}}>Register</Button></Link>
+                        <Link to="/auth/register"><Button variant="success" style={{ textAlign: "center", width: "100%", padding: "10px", borderRadius: "10px", boxShadow: '0px 7px #1a5928',}}>Register</Button></Link>
                     </Form>
                 </div>
             </Col>

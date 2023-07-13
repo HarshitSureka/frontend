@@ -121,7 +121,7 @@ const AddSkill = (props) => {
                         )} 
                         </div>
                         <br></br>
-                        <Button  onClick={submit}>Submit</Button>
+                        <Button variant="success" style={{boxShadow: '0px 7px #1a5928'}} onClick={submit}>Submit</Button>
                         <br />
                         <br />
                     </Form>

@@ -226,7 +226,7 @@ const AddInformation = (props) => {
                         }
                         <br></br>
                         
-                        <Button style={{ marginLeft: "30%", borderRadius: "10px", padding: "13px", width: "40%"}} onClick={submit}>Submit</Button>
+                        <Button variant="success" style={{ marginLeft: "30%", borderRadius: "10px", padding: "13px", width: "40%", boxShadow: '0px 7px #1a5928'}} onClick={submit}>Submit</Button>
                         <br />
                         <br />
                     </Form>

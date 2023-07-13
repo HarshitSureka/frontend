@@ -4,7 +4,7 @@ import {Link, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Navbar from '../components/Navbar';
 import Button from 'react-bootstrap/Button'
-import {Row,  Col, Image} from 'react-bootstrap';
+import {Row,  Col, ProgressBar, Image} from 'react-bootstrap';
 import {Helmet} from 'react-helmet';
 import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -24,6 +24,8 @@ import {MDBBtn} from 'mdb-react-ui-kit';
 import '../styles/file.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FaCalendar, FaStar, FaTrophy, FaMedal } from 'react-icons/fa';
+
 
 
 ////This is the home page of the website, which is user directed to the
@@ -50,6 +52,18 @@ const Home = (props) => {
 	const [completedCategories, setCompletedCategories] = useState([]);
 	const navigate = useNavigate();
 
+	const statistics = [
+		{ title: 'Day Streak', value: '30', icon: FaCalendar, color: '#F9C80E' },
+		{ title: 'Total XP', value: '5000', icon: FaStar, color: '#FF6B6B' },
+		{ title: 'Current League', value: 'Gold', icon: FaTrophy, color: '#7A77FF' },
+		{ title: 'Top 3 Finishes', value: '10', icon: FaMedal, color: '#43AA8B' },
+	  ];
+
+	  const achievements = [
+		{ title: 'Beginner', icon: FaStar, color: '#32CC8F', progress: 20 },
+		{ title: 'Intermediate', icon: FaStar, color: '#845EC2', progress: 40 },
+		{ title: 'Advanced', icon: FaStar, color: '#FF6F91', progress: 60 },
+	  ];
 
 	const images = [image0, image1, image2, image3, image4, image5, image6, image7];
 
@@ -262,7 +276,7 @@ const Home = (props) => {
 					  placeholder="Type query"
 					  aria-label="Search"
 					/>
-					<MDBBtn color="primary" onClick={() => onSearch(searchValue)}>
+					<MDBBtn color="success" onClick={() => onSearch(searchValue)}>
 					  Search
 					</MDBBtn>
 					<Dropdown.Menu show={searchValue !== ""}>
@@ -277,6 +291,58 @@ const Home = (props) => {
 			  </div>
 			</div>
 
+			<Row>
+				<Col md={6}>
+				<h3>Statistics</h3>
+				<Row>
+					{statistics.map((stat, index) => (
+					<Col md={6} key={index}>
+						<Card className="mb-4" style={{ backgroundColor: stat.color }}>
+						<Card.Body>
+							<div className="d-flex align-items-center">
+							<div className="icon-container">
+								<stat.icon size={24} color="#FFF" />
+							</div>
+							<div className="ml-4">
+								<Card.Title>{stat.title}</Card.Title>
+								<Card.Text>{stat.value}</Card.Text>
+							</div>
+							</div>
+						</Card.Body>
+						</Card>
+					</Col>
+					))}
+				</Row>
+				</Col>
+				<Col md={6}>
+				<h3>Achievements</h3>
+				<Card>
+            <Card.Body>
+              {achievements.map((achievement, index) => (
+                <div
+                  key={index}
+                  className="achievement-card"
+                  style={{ backgroundColor: achievement.color, padding: "10px", marginBottom: "10px", borderRadius: "10px" }}
+                >
+                  <div className="d-flex align-items-center">
+                    <div className="icon-container mr-5">
+                      <achievement.icon size={24} color="#FFF" />
+                    </div>
+                    <div className="achievement-info">
+                      <h5>{achievement.title}</h5>
+                      <ProgressBar
+                        now={achievement.progress}
+                        label={`${achievement.progress}%`}
+                        variant="light"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Card.Body>
+          </Card>
+				</Col>
+			</Row>
 
 			<div className="row mt-5">
   <div className="col-md-12">
@@ -286,7 +352,7 @@ const Home = (props) => {
         skills.map((skill, idx) => (
 			console.log(idx),
           <div className="col" key={idx}>
-            <Card className={`skill-card mt-1 mb-5 ${selectedSkill === skill.skill ? 'selected' : ''}`}>
+            <Card className={`skill-card mt-1 mb-5 ${selectedSkill === skill.skill ? 'selected' : ''}`} style={{ border: '4px solid black' }}>
               <Card.Img variant="top" src={images[idx]} alt={skill.skill} />
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-center">

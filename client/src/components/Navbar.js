@@ -130,31 +130,19 @@ const Navbar = ({proprole}) => {
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
             <MDBNavbarItem>
-            <MDBNavbarLink onClick = {() => navigate('/home')}>Home</MDBNavbarLink>
+            <MDBNavbarLink onClick = {() => navigate('/home')} style={{fontWeight: 'bold', color: "#ffffff"}}>Home</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-            <MDBNavbarLink onClick = {handleLogOut}>Logout</MDBNavbarLink>
+            <MDBNavbarLink onClick = {handleLogOut} style={{fontWeight: 'bold', color: "#ffffff"}}>Logout</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/profilepage`)}>View Profile</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/contactus`)}>Contact Us</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/aboutus`)}>About Us</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/terms`)}>Terms</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/privacypolicy`)}>Privacy Policy</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/profilepage`)} style={{fontWeight: 'bold', color: "#ffffff"}}>View Profile</MDBNavbarLink>
             </MDBNavbarItem>
 
             {role === 'admin'?
             <MDBNavbarItem>
             
-              <MDBNavbarLink onClick = {()=> navigate(`/addchapters`)}>Add Chapters</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/addchapters`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Add Chapters</MDBNavbarLink>
               </MDBNavbarItem> 
               : null
             }
@@ -162,7 +150,7 @@ const Navbar = ({proprole}) => {
             {role === 'admin'?
             <MDBNavbarItem>
             
-              <MDBNavbarLink onClick = {()=> navigate(`/addinformation`)}>Add Information</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/addinformation`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Add Information</MDBNavbarLink>
               </MDBNavbarItem> 
               : null
             }
@@ -170,7 +158,7 @@ const Navbar = ({proprole}) => {
             {role === 'admin'?
             <MDBNavbarItem>
             
-              <MDBNavbarLink onClick = {()=> navigate(`/addquestions`)}>Add Questions</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/addquestions`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Add Questions</MDBNavbarLink>
               </MDBNavbarItem> 
               : null
             }
@@ -178,7 +166,7 @@ const Navbar = ({proprole}) => {
             {role === 'admin'?
             <MDBNavbarItem>
             
-              <MDBNavbarLink onClick = {()=> navigate(`/allskills`)}>Edit/Delete</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/allskills`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Edit/Delete</MDBNavbarLink>
               </MDBNavbarItem> 
               : null
             }

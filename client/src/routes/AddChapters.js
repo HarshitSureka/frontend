@@ -306,7 +306,7 @@ const AddChapters = (props) => {
                             </div>
                             <br></br>
 
-                            <Button style={{ borderRadius: "10px", padding: "13px", width: "40%"}} onClick={submitForSubCategories}>Submit</Button>
+                            <Button variant="success" style={{ borderRadius: "10px", padding: "13px", width: "40%", boxShadow: '0px 7px #1a5928'}} onClick={submitForSubCategories}>Submit</Button>
                         </Form>
                     </Tab>
                 </Tabs>

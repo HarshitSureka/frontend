@@ -109,7 +109,7 @@ const ProfilePage = (props) => {
 					   <p>{joinDate}</p>
 					 </div>
 					 <div className="ml-auto">
-						 <Link to="/updateemail"><Button variant="primary">Edit Profile</Button></Link>              
+						 <Link to="/updateemail"><Button variant="success">Edit Profile</Button></Link>              
 					 </div>
 				   </Card.Body>
 				 </Card>
