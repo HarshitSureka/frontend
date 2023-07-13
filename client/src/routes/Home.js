@@ -54,8 +54,6 @@ const Home = (props) => {
 
 	const statistics = [
 		{ title: 'Day Streak', value: '30', icon: FaCalendar, color: '#F9C80E' },
-		{ title: 'Total XP', value: '5000', icon: FaStar, color: '#FF6B6B' },
-		{ title: 'Current League', value: 'Gold', icon: FaTrophy, color: '#7A77FF' },
 	  ];
 
 	const images = [image0, image1, image2, image3, image4, image5, image6, image7];
@@ -286,7 +284,7 @@ const Home = (props) => {
 
 			<Row>
 				<Col md={12}>
-				<h3>Statistics</h3>
+				<h3>Daily Streak</h3>
 				<Row>
 					{statistics.map((stat, index) => (
 					<Col md={3} key={index}>
