@@ -11,14 +11,14 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
-import image0 from '../images/0.png';
-import image1 from '../images/1.png';
-import image2 from '../images/2.png';
-import image3 from '../images/3.png';
-import image4 from '../images/4.png';
-import image5 from '../images/5.png';
-import image6 from '../images/6.png';
-import image7 from '../images/7.png';
+import image0 from '../images/Investing.png';
+import image1 from '../images/Fixed.png';
+import image2 from '../images/Economics.png';
+import image3 from '../images/Personal.png';
+import image4 from '../images/Trading.png';
+import image5 from '../images/Crypto.png';
+import image6 from '../images/Insurance.png';
+import image7 from '../images/Sector.png';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {MDBBtn} from 'mdb-react-ui-kit';
 import '../styles/file.css';
@@ -242,7 +242,7 @@ const Home = (props) => {
 						{continueHeader !== "Explore new Skills" ? (
 						  <>
 							Continue with{" "}
-							<Button onClick={() => navigate(navigateTo)}>
+							<Button variant="success" onClick={() => navigate(navigateTo)}>
 							  {continueButtonHeader.split("_").join(" ")}
 							</Button>{" "}
 						  </>

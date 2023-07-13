@@ -78,7 +78,7 @@ const EnterEmail = (props) => {
                             onChange={(e) => setEmail(e.target.value)} />
                         </Form.Group>
                         <br/>
-                        <Button  onClick={enteremail}>Submit</Button>
+                        <Button variant="success" onClick={enteremail} style={{boxShadow: '0px 7px #1a5928'}}>Submit</Button>
                     </Form>
                 </div>
             </Col>

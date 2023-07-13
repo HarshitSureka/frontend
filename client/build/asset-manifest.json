@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/static/css/main.02d328ae.css",
-    "main.js": "/static/js/main.704632d9.js",
+    "main.js": "/static/js/main.c2b79373.js",
     "static/js/787.83904489.chunk.js": "/static/js/787.83904489.chunk.js",
-    "static/media/6.png": "/static/media/6.a1f0777df16b087c5d70.png",
+    "static/media/Sector.png": "/static/media/Sector.a1f0777df16b087c5d70.png",
     "static/media/harshit.jpg": "/static/media/harshit.649b34921f593ef2488d.jpg",
-    "static/media/3.png": "/static/media/3.11dbd0df84825d4b1241.png",
-    "static/media/1.png": "/static/media/1.de043e5d61dc57990a59.png",
-    "static/media/5.png": "/static/media/5.ddd2a6cd7cd5a3b43396.png",
-    "static/media/0.png": "/static/media/0.d0d4e1d99f58a4c73a95.png",
+    "static/media/Insurance.png": "/static/media/Insurance.11dbd0df84825d4b1241.png",
+    "static/media/Economics.png": "/static/media/Economics.de043e5d61dc57990a59.png",
+    "static/media/Personal.png": "/static/media/Personal.ddd2a6cd7cd5a3b43396.png",
+    "static/media/Crypto.png": "/static/media/Crypto.d0d4e1d99f58a4c73a95.png",
     "static/media/teach.png": "/static/media/teach.e7e547bc215276f30add.png",
-    "static/media/7.png": "/static/media/7.a12c1f3b87c7bdc17df0.png",
-    "static/media/4.png": "/static/media/4.5f97fcad2df14e15e373.png",
-    "static/media/2.png": "/static/media/2.b1e78f49f63c645121dd.png",
+    "static/media/Trading.png": "/static/media/Trading.a12c1f3b87c7bdc17df0.png",
+    "static/media/Investing.png": "/static/media/Investing.5f97fcad2df14e15e373.png",
+    "static/media/Fixed.png": "/static/media/Fixed.b1e78f49f63c645121dd.png",
     "static/media/sneh.jpg": "/static/media/sneh.f9ee79a2259e5e5a0ac8.jpg",
     "index.html": "/index.html",
     "main.02d328ae.css.map": "/static/css/main.02d328ae.css.map",
-    "main.704632d9.js.map": "/static/js/main.704632d9.js.map",
+    "main.c2b79373.js.map": "/static/js/main.c2b79373.js.map",
     "787.83904489.chunk.js.map": "/static/js/787.83904489.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.02d328ae.css",
-    "static/js/main.704632d9.js"
+    "static/js/main.c2b79373.js"
   ]
 }

@@ -110,7 +110,7 @@ const InformationPage = () => {
 		<Helmet><title>Let's Learn</title></Helmet>
 		<Navbar  proprole={role}/>
         <br/>
-		<Card className="d-flex flex-column" style={{width: "80%", margin: "0 auto", borderRadius: '15px'}}>
+		<Card className="d-flex flex-column" style={{width: "80%", marginLeft: "10%", marginTop: "10%", borderRadius: '15px'}}>
 
 			{/* <Card.Header>Let's Learn about {information.category}</Card.Header> */}
 			<Card.Body>

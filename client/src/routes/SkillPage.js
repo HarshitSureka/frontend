@@ -89,7 +89,7 @@ const SkillPage = () => {
 			<br/>
 			<h2 className="text-center"><Badge pill bg="light">{skillName.split("_").join(" ")}</Badge></h2>
 			
-			<Row xs={1} className="g-4 mt-5">
+			<Row xs={1} className="g-4 mt-5" style={{width: "60%", marginLeft: "20%", borderRadius: '15px'}}>
 			{categories.map((category, i) => (
 			<Col key={i}>
 			<Card className="mb-4">
