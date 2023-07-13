@@ -229,7 +229,7 @@ const Home = (props) => {
 		  </Helmet>
 		  <Navbar proprole={role} />
 		  <div className="container mt-5">
-			<div className="row">
+			<div className="row h-auto">
 			  <div className="col-md-6 mb-4">
 				{userName ? (
 				  <Card className="welcome-card">
@@ -257,11 +257,12 @@ const Home = (props) => {
 			  </div>
 			  <div className="col-md-6 w-100">
 				<h3>Search</h3>
-				<div className="search-container">
+				<div className="search-container mb-3">
 				  <form className="d-flex input-group" style={{ width: "100%" }} >
 					<input
 					  type="search"
 					  value={searchValue}
+					  width="70%"
 					  onChange={onChangeSearchValue}
 					  className="form-control mr-4"
 					  placeholder="Type query"
@@ -279,12 +280,31 @@ const Home = (props) => {
 					</Dropdown.Menu>
 				  </form>
 				</div>
+				<Row>
+					{statistics.map((stat, index) => (
+					<Col key={index}>
+						<Card className="mb-4" style={{ backgroundColor: stat.color }}>
+						<Card.Body>
+							<div className="d-flex align-items-center">
+							<div className="icon-container">
+								<stat.icon size={24} color="#FFF" />
+							</div>
+							<div className="ml-4">
+								<Card.Title>{stat.title}</Card.Title>
+								<Card.Text>{stat.value}</Card.Text>
+							</div>
+							</div>
+						</Card.Body>
+						</Card>
+
+					</Col>
+					))}
+				</Row>
 			  </div>
 			</div>
 
-			<Row>
+			{/* <Row>
 				<Col md={12}>
-				<h3>Daily Streak</h3>
 				<Row>
 					{statistics.map((stat, index) => (
 					<Col md={3} key={index}>
@@ -306,7 +326,7 @@ const Home = (props) => {
 					))}
 				</Row>
 				</Col>
-			</Row>
+			</Row> */}
 
 			<div className="row mt-5">
   <div className="col-md-12">

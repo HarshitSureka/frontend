@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.02d328ae.css",
-    "main.js": "/static/js/main.fcdf406b.js",
+    "main.js": "/static/js/main.7ecec2dd.js",
     "static/js/787.83904489.chunk.js": "/static/js/787.83904489.chunk.js",
+    "static/media/Fixed.png": "/static/media/Fixed.0cec19b1c5c8eb3fd3db.png",
     "static/media/Sector.png": "/static/media/Sector.a1f0777df16b087c5d70.png",
     "static/media/harshit.jpg": "/static/media/harshit.649b34921f593ef2488d.jpg",
     "static/media/Insurance.png": "/static/media/Insurance.11dbd0df84825d4b1241.png",
@@ -12,15 +13,14 @@
     "static/media/teach.png": "/static/media/teach.e7e547bc215276f30add.png",
     "static/media/Trading.png": "/static/media/Trading.a12c1f3b87c7bdc17df0.png",
     "static/media/Investing.png": "/static/media/Investing.5f97fcad2df14e15e373.png",
-    "static/media/Fixed.png": "/static/media/Fixed.b1e78f49f63c645121dd.png",
     "static/media/sneh.jpg": "/static/media/sneh.f9ee79a2259e5e5a0ac8.jpg",
     "index.html": "/index.html",
     "main.02d328ae.css.map": "/static/css/main.02d328ae.css.map",
-    "main.fcdf406b.js.map": "/static/js/main.fcdf406b.js.map",
+    "main.7ecec2dd.js.map": "/static/js/main.7ecec2dd.js.map",
     "787.83904489.chunk.js.map": "/static/js/787.83904489.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.02d328ae.css",
-    "static/js/main.fcdf406b.js"
+    "static/js/main.7ecec2dd.js"
   ]
 }
