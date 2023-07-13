@@ -75,7 +75,7 @@ const SkillCategoryPage = () => {
 			<br/>
 			<h2 className="text-center"><Badge pill bg="light">{skillName.split("_").join(" ")} {'->'} {categoryName.split("_").join(" ")}</Badge></h2>
 			
-			<Row xs={1} md={2} className="g-4 mt-5">
+			<Row xs={1} className="g-4 mt-5">
 			{subCategories.map((sub_category, i) => (
 			<Col key={i}>
 			<Card className="mb-4">
@@ -87,7 +87,7 @@ const SkillCategoryPage = () => {
 					{/* <Card.Text>
 					With supporting text below as a natural lead-in to additional content.
 					</Card.Text> */}
-					<Button onClick={() => handleSubCategorySelection(sub_category.sub_category)}>Let's Go</Button> 
+					<Button variant="success" onClick={() => handleSubCategorySelection(sub_category.sub_category)} style={{boxShadow: '0px 7px #1a5928'}}>Let's Go</Button> 
 				</Card.Body>
 			</Card>
 			</Col>

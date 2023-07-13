@@ -128,21 +128,21 @@ const InformationPage = () => {
 					))}
 				</p>
 				</Card.Text>
-				{(pageNumber > 0)  && <><Button variant="secondary" onClick={prev}>Prev</Button>{'  '}</>}
-		   {(pageNumber + 1 < maxInfoPages)  && <><Button variant="primary"  onClick={next}>Next</Button>{'  '}</>}
+				{(pageNumber > 0)  && <><Button variant="success" onClick={prev}>Prev</Button>{'  '}</>}
+		   {(pageNumber + 1 < maxInfoPages)  && <><Button variant="success"  onClick={next}>Next</Button>{'  '}</>}
 			
 		   {isQuiz && (pageNumber + 1 === maxInfoPages && isCompleted.current === true) &&
 			<><OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Your score is {score}</Tooltip>}>
 				<span className="d-inline-block">
-					<Button disabled style={{ pointerEvents: 'none' }}>
+					<Button variant="success" disabled style={{ pointerEvents: 'none' }}>
 					Start Quiz
 					</Button>
 				</span>
 				</OverlayTrigger></>}
 			
 				{isQuiz && (pageNumber + 1 === maxInfoPages && isCompleted.current === false) &&
-			<><Button variant="primary" onClick={() => navigate(`/skills/${skillName}/${category}/${subcategory}/quiz`)}>Start Quiz</Button>{'  '}</>}
-			{!isQuiz && (pageNumber + 1 === maxInfoPages) && <Button variant="primary" onClick={() => navigate(`/skills/${skillName}/${category}`)}>Go Back!!</Button>}
+			<><Button variant="success" onClick={() => navigate(`/skills/${skillName}/${category}/${subcategory}/quiz`)}>Start Quiz</Button>{'  '}</>}
+			{!isQuiz && (pageNumber + 1 === maxInfoPages) && <Button variant="success" onClick={() => navigate(`/skills/${skillName}/${category}`)}>Go Back!!</Button>}
 			</Card.Body>
 			</Card>
         </>

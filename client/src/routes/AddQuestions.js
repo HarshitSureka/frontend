@@ -239,10 +239,10 @@ const AddQuestion = (props) => {
                                 <div class="form-group col-sm-6 col-md-6">
                                 {
                                     optionsList.length!==1 &&
-                                    <button  className="btn btn-danger mx-1" style={{ borderRadius: "10px", padding: "13px", width: "45%"}} onClick={()=> handleRemove(i)}>Remove</button>
+                                    <button  className="btn btn-danger mx-1" style={{ borderRadius: "10px", padding: "13px", width: "45%", boxShadow: '0px 7px #1a5928'}} onClick={()=> handleRemove(i)}>Remove</button>
                                 }
                                 { optionsList.length-1===i &&
-                                    <button  className="btn btn-success" style={{ borderRadius: "10px", padding: "13px", width: "45%"}} onClick={ handleAddNewOptionClick}>Add More</button>
+                                    <button  className="btn btn-success" style={{ borderRadius: "10px", padding: "13px", width: "45%", boxShadow: '0px 7px #1a5928'}} onClick={ handleAddNewOptionClick}>Add More</button>
                                 }
                                 </div>
                             </div>

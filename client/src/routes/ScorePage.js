@@ -103,9 +103,9 @@ const ScorePage = (props) => {
 				<Card.Text>You scored {points} points</Card.Text>
 				<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
 				{((subCategoryIndex.current) + 1 < (totalSubCategories.current)) &&
-		<><Button  onClick={()=> { navigate(`/skills/${skillName}/${category}/${allSubCategories.current[(subCategoryIndex.current) + 1].sub_category}/information/${0}`)}}>Next: Start with {allSubCategories.current[(subCategoryIndex.current) + 1].sub_category.split("_").join(" ")}</Button>{' '}</>}
+		<><Button variant="success" onClick={()=> { navigate(`/skills/${skillName}/${category}/${allSubCategories.current[(subCategoryIndex.current) + 1].sub_category}/information/${0}`)}}>Next: Start with {allSubCategories.current[(subCategoryIndex.current) + 1].sub_category.split("_").join(" ")}</Button>{' '}</>}
 		{((subCategoryIndex.current) + 1 === (totalSubCategories.current)) &&
-		<><Button  onClick={() => {navigate(`/skills/${skillName}/${category}`);}}>Go Back!!</Button>{' '}</>}</div>
+		<><Button variant="success" onClick={() => {navigate(`/skills/${skillName}/${category}`);}}>Go Back!!</Button>{' '}</>}</div>
 			</Card.Body>
 		</Card>
 		:"Loading"}

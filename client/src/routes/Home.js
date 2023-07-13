@@ -286,11 +286,11 @@ const Home = (props) => {
 			</div>
 
 			<Row>
-				<Col md={3}>
+				<Col md={12}>
 				<h3>Statistics</h3>
 				<Row>
 					{statistics.map((stat, index) => (
-					<Col md={6} key={index}>
+					<Col md={3} key={index}>
 						<Card className="mb-4" style={{ backgroundColor: stat.color }}>
 						<Card.Body>
 							<div className="d-flex align-items-center">
@@ -304,6 +304,7 @@ const Home = (props) => {
 							</div>
 						</Card.Body>
 						</Card>
+
 					</Col>
 					))}
 				</Row>
