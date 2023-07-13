@@ -114,7 +114,7 @@ const Navbar = ({proprole}) => {
 	},[]);
 
   return (
-    <MDBNavbar expand='lg' light bgColor='light' className={darkMode ? 'dark-mode' : 'light-mode'}>
+    <MDBNavbar expand='lg' dark style={{ backgroundColor : '#28a745', }}>
       <MDBContainer fluid bg={darkMode ? 'dark' : 'light'} variant={darkMode ? 'dark' : 'light'}>
         <MDBNavbarBrand onClick ={() => navigate(`/home`)}><span style={{fontWeight: 'bold'}}>Fingo</span></MDBNavbarBrand>
 

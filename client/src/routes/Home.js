@@ -276,7 +276,7 @@ const Home = (props) => {
 					  placeholder="Type query"
 					  aria-label="Search"
 					/>
-					<MDBBtn color="success" onClick={() => onSearch(searchValue)}>
+					<MDBBtn color="success" onClick={() => onSearch(searchValue)} style={{boxShadow: '0px 7px #1a5928'}}>
 					  Search
 					</MDBBtn>
 					<Dropdown.Menu show={searchValue !== ""}>
@@ -352,7 +352,7 @@ const Home = (props) => {
         skills.map((skill, idx) => (
 			console.log(idx),
           <div className="col" key={idx}>
-            <Card className={`skill-card mt-1 mb-5 ${selectedSkill === skill.skill ? 'selected' : ''}`} style={{ border: '4px solid black' }}>
+            <Card className={`skill-card mt-1 mb-5 ${selectedSkill === skill.skill ? 'selected' : ''}`} style={{ border: '2px solid black' }}>
               <Card.Img variant="top" src={images[idx]} alt={skill.skill} />
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-center">
@@ -364,6 +364,7 @@ const Home = (props) => {
                 <Card.Text>Additional information about the skill</Card.Text>
                 <Button
                   variant={selectedSkill === skill.skill ? "success" : "success"}
+				  style={{boxShadow: '0px 7px #1a5928'}}
                   value={skill.skill}
                   onClick={(e) => {
                     setSelectedSkill(e.target.value);
