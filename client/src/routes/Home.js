@@ -257,7 +257,7 @@ const Home = (props) => {
 			  </div>
 			  <div className="col-md-6 w-100">
 				<div className="search-container mb-3">
-				  <form className="d-flex input-group" style={{ width: "100%" }} >
+				  <form className="d-flex input-group" >
 					<input
 					  type="search"
 					  value={searchValue}
@@ -282,7 +282,7 @@ const Home = (props) => {
 				<Row>
 					{statistics.map((stat, index) => (
 					<Col key={index}>
-						<Card className="mb-4" style={{ backgroundColor: stat.color }}>
+						<Card className="mb-4" style={{ backgroundColor: stat.color, width: "50%"}}>
 						<Card.Body>
 							<div className="d-flex align-items-center">
 							<div className="icon-container">
@@ -290,7 +290,7 @@ const Home = (props) => {
 							</div>
 							<div className="ml-4">
 								<Card.Title>{stat.title}</Card.Title>
-								<Card.Text>{stat.value}</Card.Text>
+								<Card.Text style={{fontWeight: "bold", fontSize: 30 }}>{stat.value}</Card.Text>
 							</div>
 							</div>
 						</Card.Body>

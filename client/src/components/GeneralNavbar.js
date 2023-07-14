@@ -44,25 +44,25 @@ const GeneralNavbar = ({proprole}) => {
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Home</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Home</MDBNavbarLink>
             </MDBNavbarItem>        
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/auth/login`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Login</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/auth/login`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Login</MDBNavbarLink>
             </MDBNavbarItem>        
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/auth/register`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Register</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/auth/register`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Register</MDBNavbarLink>
             </MDBNavbarItem>                
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/contactus`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Contact Us</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/contactus`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Contact Us</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/aboutus`)} style={{fontWeight: 'bold', color: "#ffffff"}}>About Us</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/aboutus`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>About Us</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/terms`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Terms</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/terms`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Terms</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink onClick = {()=> navigate(`/privacypolicy`)} style={{fontWeight: 'bold', color: "#ffffff"}}>Privacy Policy</MDBNavbarLink>
+              <MDBNavbarLink onClick = {()=> navigate(`/privacypolicy`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Privacy Policy</MDBNavbarLink>
             </MDBNavbarItem>
 
             <Button variant={darkMode ? 'light' : 'dark'} onClick={toggleDarkMode}>

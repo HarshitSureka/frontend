@@ -41,7 +41,7 @@ const StartPage = (props) => {
 		<br/>
 
 		<Row style={{ margin: 'auto', width: '80%' }}>
-      <Col xs={12} md={6} style={{ marginTop: '10%' }}>
+      <Col xs={12} md={6} style={{ marginTop: '' }}>
         <img
           src={logo}
           className="img-fluid"
