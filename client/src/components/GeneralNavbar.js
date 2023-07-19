@@ -1,5 +1,6 @@
 import React, { useState ,useRef, useEffect} from "react";
 import {Button} from 'react-bootstrap';
+import logo from "../images/logo.jpeg"
 import {
   MDBContainer,
   MDBNavbar,
@@ -30,7 +31,13 @@ const GeneralNavbar = ({proprole}) => {
   return (
     <MDBNavbar expand='lg' dark style={{ backgroundColor : '#28a745', }}>
       <MDBContainer fluid>
-        <MDBNavbarBrand onClick ={() => navigate(`/`)}><span style={{fontWeight: 'bold'}}>Fingo</span></MDBNavbarBrand>
+        <MDBNavbarBrand onClick ={() => navigate(`/`)}> <img
+          src={logo}
+          height={50}
+          width={50}
+          className="img-fluid"
+          alt="Learn Finance Logo"
+        /></MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
@@ -64,11 +71,6 @@ const GeneralNavbar = ({proprole}) => {
             <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/privacypolicy`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Privacy Policy</MDBNavbarLink>
             </MDBNavbarItem>
-
-            <Button variant={darkMode ? 'light' : 'dark'} onClick={toggleDarkMode}>
-                {darkMode ? 'Light Mode' : 'Dark Mode'}
-          </Button>
-
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>

@@ -239,7 +239,7 @@ const Home = (props) => {
 						{continueHeader !== "Explore new Skills" ? (
 						  <>
 							Continue with{" "}
-							<Button variant="primary" onClick={() => navigate(navigateTo)}>
+							<Button variant="success" onClick={() => navigate(navigateTo)}>
 							  {continueButtonHeader.split("_").join(" ")}
 							</Button>{" "}
 						  </>

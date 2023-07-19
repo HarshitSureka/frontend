@@ -45,7 +45,7 @@ const StartPage = (props) => {
         <img
           src={logo}
           className="img-fluid"
-          alt="Learn Finance Logo"
+          alt="Learn Finance"
         />
       </Col>
       <Col xs={12} md={6} style={{ marginTop: '10%' }}>

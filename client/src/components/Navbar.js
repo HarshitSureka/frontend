@@ -18,6 +18,7 @@ import {
 } from 'mdb-react-ui-kit';
 import {Link, useNavigate } from 'react-router-dom';
 import {Button} from 'react-bootstrap';
+import logo from "../images/logo.jpeg"
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -116,7 +117,13 @@ const Navbar = ({proprole}) => {
   return (
     <MDBNavbar expand='lg' dark style={{ backgroundColor : '#28a745', }}>
       <MDBContainer fluid bg={darkMode ? 'dark' : 'light'} variant={darkMode ? 'dark' : 'light'}>
-        <MDBNavbarBrand onClick ={() => navigate(`/home`)}><span style={{fontWeight: 'bold'}}>Fingo</span></MDBNavbarBrand>
+        <MDBNavbarBrand onClick ={() => navigate(`/home`)}><img
+          src={logo}
+          height={50}
+          width={50}
+          className="img-fluid"
+          alt="Learn Finance Logo"
+        /></MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
