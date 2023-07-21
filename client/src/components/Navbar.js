@@ -19,6 +19,7 @@ import {
 import {Link, useNavigate } from 'react-router-dom';
 import {Button} from 'react-bootstrap';
 import logo from "../images/logo.jpeg"
+import DarkMode from "./DarkMode";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -117,13 +118,8 @@ const Navbar = ({proprole}) => {
   return (
     <MDBNavbar expand='lg' dark style={{ backgroundColor : '#28a745', }}>
       <MDBContainer fluid bg={darkMode ? 'dark' : 'light'} variant={darkMode ? 'dark' : 'light'}>
-        <MDBNavbarBrand onClick ={() => navigate(`/home`)}><img
-          src={logo}
-          height={50}
-          width={50}
-          className="img-fluid"
-          alt="Learn Finance Logo"
-        /></MDBNavbarBrand>
+      <MDBNavbarBrand onClick ={() => navigate(`/home`)}><span style={{fontWeight: 'bold'}}>Fingo</span></MDBNavbarBrand>
+
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
@@ -180,9 +176,14 @@ const Navbar = ({proprole}) => {
 
           </MDBNavbarNav>
 
-          <Button variant={darkMode ? 'light' : 'dark'} onClick={toggleDarkMode}>
+          {/* <Button variant={darkMode ? 'light' : 'dark'} onClick={toggleDarkMode}>
             {darkMode ? 'Light Mode' : 'Dark Mode'}
-          </Button>
+          </Button> */}
+
+          <DarkMode />
+
+
+
           {/* <div className="search-container">
           <form className='d-flex input-group w-auto'>
             <input type='search' value={searchValue} onChange={onChangeSearchValue} className='form-control mr-4' placeholder='Type query' aria-label='Search' />

@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
         {role === 'unknown'? <GeneralNavbar/> : <Navbar  proprole={role}/>}
 
 
-        <Container className="m-5">
+        <Container className="m-5"  >
 
         <h1>Privacy Policy</h1>
         

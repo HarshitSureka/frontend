@@ -31,13 +31,7 @@ const GeneralNavbar = ({proprole}) => {
   return (
     <MDBNavbar expand='lg' dark style={{ backgroundColor : '#28a745', }}>
       <MDBContainer fluid>
-        <MDBNavbarBrand onClick ={() => navigate(`/`)}> <img
-          src={logo}
-          height={50}
-          width={50}
-          className="img-fluid"
-          alt="Learn Finance Logo"
-        /></MDBNavbarBrand>
+      <MDBNavbarBrand onClick ={() => navigate(`/`)}><span style={{fontWeight: 'bold'}}>Fingo</span></MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'

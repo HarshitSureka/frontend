@@ -15,6 +15,7 @@ const logo = require('../images/teach.png');
 ////data represents username of the logged in username
 ////join room is the invitation link to which user must be redirected to
 const StartPage = (props) => {
+
 	const navigate = useNavigate();
 
 	////to authenticate user before allowing him to enter the home page
