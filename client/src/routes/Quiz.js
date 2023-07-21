@@ -213,7 +213,18 @@ const Quiz = () => {
 			<Card.Body>
 				<Card.Title>Question {(currentQuestionIndex.current) + 1}</Card.Title>
 				<Card.Text><span style={{fontWeight: 'bold'}}>{currentQuestion}</span></Card.Text>
-				{imageURL && <><Card.Img variant="top" style={{ width: "300px", textAlign: "center", margin: "auto" }} src={imageURL} className='mt-2' /><br/><br/></>}
+				{imageURL && (
+        <div className="d-flex">
+          <Card.Img
+            variant="top"
+            src={imageURL}
+            className="img-fluid mt-2"
+            style={{ maxWidth: '30%', height: '300px' }}
+            alt="Responsive image"
+          />
+        </div>
+      )}
+
 			</Card.Body>
 			<ListGroup className="list-group-flush">
 			{optionSet.map((option, i) =>

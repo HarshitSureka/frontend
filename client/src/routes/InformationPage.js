@@ -115,7 +115,27 @@ const InformationPage = () => {
 			{/* <Card.Header>Let's Learn about {information.category}</Card.Header> */}
 			<Card.Body>
 				<Card.Title><span style={{fontWeight: 'bold'}}>{information.heading}</span></Card.Title>
-				{imageURL && <><Card.Img variant="top" style={{ width: "300px", textAlign: "center", margin: "auto" }} src={imageURL} className='mt-2' /><br/><br/></>}
+				{/* {imageURL && <>
+					<Card.Img 
+						variant="top" 
+						style={{ width: "300px", textAlign: "center", margin: "auto" }} 
+						src={imageURL} 
+						className='mt-2' />
+						<br/><br/>
+						</>} */}
+
+						{imageURL && (
+						<div className="d-flex">
+						<Card.Img
+							variant="top"
+							src={imageURL}
+							className="img-fluid mt-2"
+							style={{ maxWidth: '30%', maxHeight: '300px' }}
+							alt="Responsive image"
+						/>
+						</div>
+					)}
+
 				
 				<Card.Text>
 				<p>
