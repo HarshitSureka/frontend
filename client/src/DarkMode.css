@@ -3,20 +3,38 @@
     --font-color: #333;
     --background-color: #fff;
     --link-color: cornflowerblue;
+
+    .card {
+      background-color: var(--background-color);
+      color: var(--font-color);
+      border: 1px solid black;
+    }
   }
+
+  
   
   /* 2 */
   [data-theme="dark"] {
-    --font-color: #333;
-    --background-color: #333;
+    --font-color: #fff;
+    --background-color: #000;
     --link-color: lightblue;
+
+    .card {
+      background-color: #333;
+      color: var(--font-color);
+      border: 1px solid white;
+    }
   }
+
+  
   
   /* 3 */
   body {
     background-color: var(--background-color);
     color: var(--font-color);
   }
+
+  
   
   a {
     color: var(--link-color);

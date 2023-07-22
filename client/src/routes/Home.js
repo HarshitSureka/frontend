@@ -11,6 +11,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
+// import "../DarkMode.css";	
 import image0 from '../images/Investing.png';
 import image1 from '../images/Fixed.png';
 import image2 from '../images/Economics.png';
@@ -25,6 +26,7 @@ import '../styles/file.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FaCalendar, FaStar, FaTrophy, FaMedal } from 'react-icons/fa';
+import DarkMode from "../components/DarkMode";
 
 
 
@@ -335,7 +337,7 @@ const Home = (props) => {
         skills.map((skill, idx) => (
 			console.log(idx),
           <div className="col" key={idx}>
-            <Card className={`skill-card mt-1 mb-5 ${selectedSkill === skill.skill ? 'selected' : ''}`} style={{ border: '2px solid black' }}>
+            <Card className={`skill-card mt-1 mb-5 ${selectedSkill === skill.skill ? 'selected' : ''}`} style={{ border: ''}}>
               <Card.Img variant="top" src={images[idx]} alt={skill.skill} />
               <Card.Body>
                 <div className="d-flex justify-content-between align-items-center">

@@ -56,9 +56,9 @@ const GeneralNavbar = ({proprole}) => {
             <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/contactus`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Contact Us</MDBNavbarLink>
             </MDBNavbarItem>
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/aboutus`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>About Us</MDBNavbarLink>
-            </MDBNavbarItem>
+            </MDBNavbarItem> */}
             <MDBNavbarItem>
               <MDBNavbarLink onClick = {()=> navigate(`/terms`)} style={{fontWeight: 'bold', color: "#ffffff", cursor: "pointer"}}>Terms</MDBNavbarLink>
             </MDBNavbarItem>
