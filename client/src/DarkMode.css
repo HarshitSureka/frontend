@@ -153,4 +153,34 @@
       color: var(--font-color);
       border: 1px solid white;
     }
+
+    .modal {
+      background-color: #333;
+      color: var(--font-color);
+      border: 1px solid white;
+    }
+
+    .modal-header {
+      background-color: #333;
+      color: var(--font-color);
+      border: 1px solid white;
+    }
+
+
+    .modal-footer {
+      background-color: #333;
+      color: var(--font-color);
+      border: 1px solid white;
+    }
+
+    .modal-content {
+      background-color: #333;
+      color: var(--font-color);
+      border: 1px solid white;
+    }
+
+    .list-group-item {
+      background-color: #333;
+      color: var(--font-color);
+    }
   }
