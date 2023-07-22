@@ -143,7 +143,7 @@ const AllSubCategories = () => {
 		<Navbar  proprole={role}/>
         <Container>
 			<br/>
-			<h2 className="text-center"><Badge pill bg="light">Edit/Delete Sub Category</Badge></h2>
+			<h2 style={{color: "#000"}} className="text-center"><Badge pill bg="light">Edit/Delete Sub Category</Badge></h2>
 			
 			<Row xs={1} md={1} className="g-4 mt-5">
 			{subCategories.map((subcategory, i) => (

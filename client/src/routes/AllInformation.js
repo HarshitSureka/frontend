@@ -83,7 +83,7 @@ const AllInformation = () => {
 		<Navbar  proprole={role}/>
         <Container>
 			<br/>
-			<h2 className="text-center"><Badge pill bg="light">Edit/Delete Information</Badge></h2>
+			<h2 style={{color: "#000"}} className="text-center"><Badge pill bg="light">Edit/Delete Information</Badge></h2>
 			
 			<Row xs={1} md={2} className="g-4 mt-5">
 			{informationList.map((information, i) => (
