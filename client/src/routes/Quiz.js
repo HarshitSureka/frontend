@@ -205,7 +205,7 @@ const Quiz = () => {
 		<Helmet><title>Quiz</title></Helmet>
 		<Navbar  proprole={role}/>
 		<br/>
-		<h2 className="text-center" style={{color: "#000"}}><Badge pill bg="light">{skillName.split("_").join(" ")} {'->'} {category.split("_").join(" ")} {'->'} {subcategory.split("_").join(" ")}</Badge></h2>
+		{/* <h2 className="text-center" style={{color: "#000"}}><Badge pill bg="light">{skillName.split("_").join(" ")} {'->'} {category.split("_").join(" ")} {'->'} {subcategory.split("_").join(" ")}</Badge></h2> */}
 
 		<Card className="d-flex flex-column" style={{ width: "80%", marginLeft: "10%", marginBottom: "10%", borderRadius: '15px'}}>
 
@@ -226,10 +226,10 @@ const Quiz = () => {
       )}
 
 			</Card.Body>
-			<ListGroup className="list-group-flush">
+			<ListGroup className="list-group-flush fix">
 			{optionSet.map((option, i) =>
             <ListGroup.Item key={i}> 
-				<Form.Check style={{color: "#000"}} type="checkbox" onClick={()=> handleAnswer(i)} checked={answersList.includes(i)} label={option}/>
+				<Form.Check type="checkbox" onClick={()=> handleAnswer(i)} checked={answersList.includes(i)} label={option}/>
 			</ListGroup.Item>
             )}
 			</ListGroup>
@@ -237,7 +237,7 @@ const Quiz = () => {
 
 				<Button variant="success" style={{boxShadow: '0px 7px #1a5928'}} onClick={check}>Submit</Button>
 
-				<Modal show={showExplaination} style={{color: "#000"}}>
+				<Modal show={showExplaination}>
 					<Modal.Header>
 					<Modal.Title><>{currentIsCorrect? 'Correct Answer':'Oops, That is Incorrect'}</></Modal.Title>
 					</Modal.Header>
