@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ebf34ae4.css",
+    "main.js": "/static/js/main.79e27c9a.js",
+    "static/js/787.83904489.chunk.js": "/static/js/787.83904489.chunk.js",
+    "static/media/teach.png": "/static/media/teach.2bacf433357e94cdf508.png",
+    "static/media/Sector.png": "/static/media/Sector.a1f0777df16b087c5d70.png",
+    "static/media/harshit.jpg": "/static/media/harshit.649b34921f593ef2488d.jpg",
+    "static/media/Insurance.png": "/static/media/Insurance.11dbd0df84825d4b1241.png",
+    "static/media/Economics.png": "/static/media/Economics.de043e5d61dc57990a59.png",
+    "static/media/Personal.png": "/static/media/Personal.ddd2a6cd7cd5a3b43396.png",
+    "static/media/Crypto.png": "/static/media/Crypto.d0d4e1d99f58a4c73a95.png",
+    "static/media/Fixed.png": "/static/media/Fixed.399665b8dea08fc57602.png",
+    "static/media/Trading.png": "/static/media/Trading.a12c1f3b87c7bdc17df0.png",
+    "static/media/Investing.png": "/static/media/Investing.5f97fcad2df14e15e373.png",
+    "static/media/logo.jpeg": "/static/media/logo.c36004afa72a10d2e3ba.jpeg",
+    "static/media/sneh.jpg": "/static/media/sneh.f9ee79a2259e5e5a0ac8.jpg",
+    "index.html": "/index.html",
+    "main.ebf34ae4.css.map": "/static/css/main.ebf34ae4.css.map",
+    "main.79e27c9a.js.map": "/static/js/main.79e27c9a.js.map",
+    "787.83904489.chunk.js.map": "/static/js/787.83904489.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ebf34ae4.css",
+    "static/js/main.79e27c9a.js"
+  ]
+}
